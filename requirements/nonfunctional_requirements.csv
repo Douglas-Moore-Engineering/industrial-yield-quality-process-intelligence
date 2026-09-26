@@ -1,0 +1,21 @@
+ID,Domain,Requirement
+NFR-001,Availability,Loss of AI shall not stop basic plant operation.
+NFR-002,Safety,AI shall never bypass existing safety controls or interlocks.
+NFR-003,Latency,Risk scoring shall meet the agreed process-response window.
+NFR-004,Reliability,The system shall degrade safely when data or dependencies fail.
+NFR-005,Explainability,Operational recommendations shall include interpretable evidence.
+NFR-006,Traceability,"Predictions shall link to source data, feature set, code and model version."
+NFR-007,Security,OT integration shall use segmented least-privilege pathways.
+NFR-008,Integrity,Manufacturing evidence shall be protected from unauthorized alteration.
+NFR-009,Auditability,Human and machine decisions shall be logged and attributable.
+NFR-010,Scalability,"Architecture shall scale across additional assets, lines and plants."
+NFR-011,Interoperability,Interfaces shall minimize machine-vendor and cloud-provider coupling.
+NFR-012,Observability,"Data, service and model health shall be measurable end-to-end."
+NFR-013,Recoverability,Critical services shall support deterministic restore/rollback.
+NFR-014,Maintainability,"Schemas, pipelines, code and models shall be independently versioned."
+NFR-015,Portability,Core models/contracts shall not depend on one equipment vendor.
+NFR-016,Data Quality,"Stale, missing, duplicated, misordered or invalid telemetry shall be identified."
+NFR-017,Human Factors,"Alerting shall be managed by severity, budget and actionability."
+NFR-018,Time Integrity,Cross-system time shall support reliable event reconstruction.
+NFR-019,Governance,Model promotion shall require pre-defined evidence gates.
+NFR-020,Fail-safe,AI failure shall revert to existing approved operating procedures.
