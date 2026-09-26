@@ -1,0 +1,25 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["DATA FOUNDATION"]
+  A["Ingest"] --> B["Validate"]
+  B --> C["Contextualize"]
+  C --> D["Genealogy / Evidence"]
+end
+subgraph L2["INTELLIGENCE"]
+  D --> E["Process Health"]
+  D --> F["Predictive Quality"]
+  D --> G["Yield / Scrap Risk"]
+  E --> H["Root Cause"]
+  F --> H
+  G --> H
+end
+subgraph L3["DECISION"]
+  H --> I["Counterfactual / Twin"]
+  I --> J["Recommendation"]
+  J --> K["Policy Guardrails"]
+end
+subgraph L4["OPERATIONS"]
+  K --> L["Human Disposition"]
+  L --> M["Outcome Ledger"]
+  M --> N["Monitoring / Learning"]
+end
