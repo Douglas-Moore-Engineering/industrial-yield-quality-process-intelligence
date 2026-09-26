@@ -1,0 +1,24 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["DEVELOP"]
+  A["Data / Feature Version"] --> B["Train"]
+  B --> C["Validate"]
+end
+subgraph L2["EVIDENCE"]
+  C --> D["Calibration / Explainability"]
+  D --> E["Safety / Robustness"]
+  E --> F["Release Manifest"]
+end
+subgraph L3["PROMOTE"]
+  F --> G{"Gate pass?"}
+  G -->|Yes| H["Registry / Approved Version"]
+  G -->|No| I["Remediate"]
+  I -.-> B
+end
+subgraph L4["OPERATE"]
+  H --> J["Shadow / Canary / Advisory"]
+  J --> K["Monitor Drift / SLO"]
+  K --> L{"Rollback needed?"}
+  L -->|Yes| H
+  L -->|No| J
+end
