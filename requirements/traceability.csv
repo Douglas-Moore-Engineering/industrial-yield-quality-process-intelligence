@@ -1,0 +1,7 @@
+Stakeholder Requirement,Need,Mapped Requirements,Verification,Evidence/KPI,Gate
+SR-01,Prevent avoidable material loss,FR-005/007/008/014,Historical replay + pilot,"FPY, scrap rate, warning horizon",G2/G4
+SR-02,Reduce time to diagnose quality events,FR-011/015/016/029,Case-based verification,"MTTDx, analyst time",G3/G4
+SR-03,Preserve production safety and authority,FR-030; NFR-002/020,Architecture inspection + failure injection,Unauthorized writes = 0,G1/G5
+SR-04,Trace impacted material quickly,FR-005/019,Genealogy reconstruction test,"Trace completeness, time-to-containment",G2/G4
+SR-05,Trust risk probabilities,FR-007/008; NFR-005,Temporal validation + calibration,"PR-AUC, Brier/ECE, false alert rate",G3
+SR-06,Operate across lines/plants,NFR-010/011/015,Portability + contract tests,"Integration effort, schema conformance",G5
