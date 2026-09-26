@@ -1,0 +1,11 @@
+ADR,Topic,Decision,Status
+ADR-001,AI authority,Advisory/HITL; no direct control writes,Accepted
+ADR-002,System abstraction,Material/industry-agnostic core with domain adapters,Accepted
+ADR-003,Data foundation,Immutable raw + validated + contextualized + feature/evidence zones,Accepted
+ADR-004,Genealogy,"Digital thread is a foundational service, not an analytics add-on",Accepted
+ADR-005,Knowledge representation,Use graph capability for relationship-heavy lineage/investigation,Accepted
+ADR-006,Model strategy,Hybrid statistical/ML/physics methods selected by evidence,Accepted
+ADR-007,Twin strategy,Composable digital-twin services with V&V/UQ,Accepted
+ADR-008,Security boundary,Plant control isolated through read-oriented segmented architecture,Accepted
+ADR-009,MLOps,Version code/data/features/models/config and support deterministic rollback,Accepted
+ADR-010,Cloud mapping,Defer provider-specific service mapping until sizing and requirement gates complete,Accepted
