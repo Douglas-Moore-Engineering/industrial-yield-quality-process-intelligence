@@ -1,0 +1,22 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["MATERIAL"]
+  A["Supplier / Lot"] --> B["Material Batch"]
+end
+subgraph L2["PRODUCTION"]
+  B --> C["Campaign / Run"]
+  C --> D["Process Window"]
+  D --> E["Equipment State"]
+end
+subgraph L3["PRODUCT"]
+  E --> F["Intermediate Product"]
+  F --> G["Finished Product"]
+end
+subgraph L4["QUALITY & EVIDENCE"]
+  G --> H["Quality Test"]
+  H --> I["Disposition"]
+  D -.-> J["Prediction / Alert"]
+  E -.-> J
+  J --> K["Recommendation / Decision"]
+  K --> I
+end
