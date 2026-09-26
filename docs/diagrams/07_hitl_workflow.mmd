@@ -1,0 +1,22 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["AI / ANALYTICS"]
+  A1["Rising Process Risk"] --> A2["Risk + Evidence"] --> A3["Candidate Bounded Action"]
+end
+subgraph L2["POLICY ENGINE"]
+  A3 --> P1["Freshness / Data Quality"] --> P2["Operating Envelope"] --> P3["Action Authorization"] --> D1{"Guardrails pass?"}
+end
+subgraph L3["OPERATOR / ENGINEER"]
+  D1 -->|Yes| H1(["Review Evidence + Recommendation"]) --> D2{"Decision?"}
+  D2 -->|Approve| H2["Approve"]
+  D2 -->|Modify| H3["Modify"]
+  D2 -->|Reject / Investigate| H4["Reject / Investigate"]
+  H2 --> M1{"×"}
+  H3 --> M1
+end
+subgraph L4["AUTHORIZED OPERATIONS & LEARNING"]
+  M1 --> O1["Existing Work / Control"] --> O2["Verify Response"] --> O3["Decision / Outcome Ledger"] --> O4["Feedback to Models / Rules"]
+  H4 --> O3
+  D1 -->|No — abstain| O3
+end
+O4 -. "Learning signal" .-> A2
