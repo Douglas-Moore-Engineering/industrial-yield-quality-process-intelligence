@@ -30,26 +30,27 @@ The initial operating model is advisory. Existing plant controls and authorized 
 
 | Path | Purpose |
 |---|---|
-| `docs/baselines/` | Formal architecture baseline and PDF |
-| `docs/diagrams/` | Architecture diagrams and editable Graphviz sources |
-| `docs/reviews/` | Diagram review package |
+| `docs/baselines/` | Formal pre-Azure architecture baseline |
+| `docs/diagrams/` | Editable Mermaid architecture/workflow sources |
 | `requirements/` | Functional, non-functional, and traceability records |
-| `architecture/` | Architecture decision records/register |
+| `architecture/` | Architecture decision register |
 | `governance/` | Azure-entry and governance gates |
-| `data/contracts/` | Canonical industrial data contracts (next phase) |
-| `src/` | Production implementation (intentionally empty pre-Azure) |
-| `infra/azure/` | Azure architecture/IaC (next phase) |
+| `data/contracts/` | Canonical industrial data contracts |
+| `src/` | Production implementation |
+| `infra/azure/` | Azure architecture/IaC — next phase |
 | `tests/` | Verification and validation assets |
 | `runbooks/` | Operational recovery/incident procedures |
-| `tools/diagramming/` | Diagram-generation utilities |
 
 ## Current baseline artifacts
 
-- `docs/baselines/IYQPIS_PreAzure_Architecture_Baseline_v0.6.docx`
-- `docs/baselines/IYQPIS_PreAzure_Architecture_Baseline_v0.6.pdf`
-- `docs/reviews/IYQPIS_Diagram_Review_v0.6.docx`
-- `docs/reviews/IYQPIS_Diagram_Review_v0.6.pdf`
+- `docs/baselines/PRE_AZURE_BASELINE_v0.6.md`
 - `docs/DIAGRAM_NOTATION_STANDARD_v0.6.md`
+- `docs/diagrams/01_system_context.mmd` through `12_deployment_topology.mmd`
+- `requirements/functional_requirements.csv`
+- `requirements/nonfunctional_requirements.csv`
+- `requirements/traceability.csv`
+- `architecture/architecture_decisions.csv`
+- `governance/azure_entry_criteria.csv`
 
 ## Next architecture gate
 
