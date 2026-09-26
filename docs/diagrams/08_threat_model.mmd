@@ -1,0 +1,22 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["THREAT SOURCES"]
+  A["External Attacker"] --> D["Threat Correlation"]
+  B["Credential Misuse"] --> D
+  C["Supply Chain / Misconfiguration"] --> D
+end
+subgraph L2["ATTACK PATHS"]
+  D --> E["Identity / API Abuse"]
+  D --> F["Telemetry / Label Tampering"]
+  D --> G["Model / Artifact Compromise"]
+end
+subgraph L3["PROTECTED ASSETS"]
+  E --> H["OT Safety / Availability"]
+  F --> I["Manufacturing Data Integrity"]
+  G --> J["Model / Decision Integrity"]
+end
+subgraph L4["CONTROLS"]
+  H --> K["Segmentation / IDMZ"]
+  I --> L["Validation / Provenance"]
+  J --> M["Signed Artifacts / HITL"]
+end
