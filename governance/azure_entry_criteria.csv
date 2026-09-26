@@ -1,0 +1,13 @@
+Gate,Required Evidence
+AZ-G01,Canonical schemas and data contracts versioned
+AZ-G02,Pilot source/event-rate and retention measurements available
+AZ-G03,Latency and warning-horizon requirement quantified
+AZ-G04,OT trust boundary and allowed network flows approved
+AZ-G05,Identity roles and authorization matrix approved
+AZ-G06,Data classification and retention requirements documented
+AZ-G07,Model release/evidence manifest defined
+AZ-G08,RPO/RTO and availability targets defined
+AZ-G09,Initial pilot acceptance thresholds defined from baseline data
+AZ-G10,Architecture trade studies and ADRs accepted
+AZ-G11,Threat model reviewed by security/OT stakeholders
+AZ-G12,Cost model input variables measured
