@@ -1,0 +1,19 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["LEVEL 0/1 — FIELD"]
+  A["Sensors / Actuators"]
+end
+subgraph L2["LEVEL 2 — CONTROL"]
+  A --> B["PLC / DCS / Local Control"]
+end
+subgraph L3["LEVEL 3 — OPERATIONS"]
+  B --> C["SCADA / Historian / MES"]
+end
+subgraph L4["INDUSTRIAL DMZ"]
+  C --> D["Read Gateway / Broker / Buffer"]
+end
+subgraph L5["ENTERPRISE / AI"]
+  D --> E["Industrial Data Platform"]
+  E --> F["AI / MLOps / Analytics"]
+end
+F -. "No direct AI control write" .-x B
