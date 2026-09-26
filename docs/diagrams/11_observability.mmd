@@ -1,0 +1,23 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["HEALTH SIGNALS"]
+  A["Pipeline / Ingestion"] --> E["Observability Aggregator"]
+  B["Data Quality / Freshness"] --> E
+  C["Model / Drift / Calibration"] --> E
+  D["API / Service Health"] --> E
+end
+subgraph L2["SLO EVALUATION"]
+  E --> F["Freshness SLO"]
+  E --> G["Prediction Availability / Latency"]
+  E --> H["False Alert / Calibration Guardrail"]
+  F --> I{"SLO / guardrail breached?"}
+  G --> I
+  H --> I
+end
+subgraph L3["RESPONSE"]
+  I -->|Yes| J["Alert / Page"] --> K["Triage Runbook"] --> L["Degraded / Abstain Mode"] --> M["Recover / Rollback"]
+  I -->|No| E
+end
+subgraph L4["IMPROVEMENT"]
+  M --> N["Incident Record"] --> O["Post-incident Review"] --> P["Corrective Action Backlog"]
+end
