@@ -1,0 +1,17 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["PLANT / EDGE RUNTIME"]
+  A["PLC / DCS / Historian / MES"] --> B["Read Gateway + Buffer"] --> C["Local Cache / Optional Edge Inference"]
+end
+subgraph L2["INDUSTRIAL DATA PLATFORM"]
+  C --> D["Raw / Immutable"] --> E["Validated / Contextualized"] --> F["Digital Thread / Evidence"]
+end
+subgraph L3["AI / DECISION PLATFORM"]
+  F --> G["Features / Training Data"] --> H["Model / Twin Services"] --> I["Decision / Investigation APIs"]
+end
+subgraph L4["USER & GOVERNANCE"]
+  I --> J["Operations / Engineering App"] --> K["HITL / Decision Ledger"]
+  L["MLOps / Security / Observability"] -.-> H
+  L -.-> D
+end
+K -. "No direct AI write" .-x A
