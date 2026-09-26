@@ -1,0 +1,31 @@
+ID,Requirement,Priority
+FR-001,Ingest time-series manufacturing telemetry with source timestamps and quality flags,Critical
+FR-002,"Ingest production orders, runs, campaigns, recipes and changeovers",Critical
+FR-003,Associate material lots/batches with production events,Critical
+FR-004,"Ingest quality, laboratory, dimensional and inspection results",Critical
+FR-005,Create end-to-end material/product genealogy,Critical
+FR-006,Calculate process-health and stability indicators,Critical
+FR-007,Calculate calibrated quality-risk estimates,Critical
+FR-008,Calculate yield/scrap risk estimates,Critical
+FR-009,Detect multivariate anomalies and change points,Critical
+FR-010,Detect process and data drift,Critical
+FR-011,Explain primary contributors to each material prediction,Critical
+FR-012,Correlate equipment condition with process and quality outcomes,High
+FR-013,Associate maintenance interventions with subsequent behavior,High
+FR-014,Reconstruct historical production trajectories,Critical
+FR-015,Retrieve comparable historical events,High
+FR-016,Generate evidence-supported root-cause hypotheses,High
+FR-017,Estimate intervention outcomes using counterfactual methods,High
+FR-018,Support validated digital-twin simulation,High
+FR-019,Trace downstream material potentially affected by an excursion,Critical
+FR-020,Provide role-appropriate alerts and risk views,Critical
+FR-021,Support approve/modify/reject human dispositions,Critical
+FR-022,Record human disposition and realized outcome,Critical
+FR-023,"Preserve model, feature and data lineage",Critical
+FR-024,Support deterministic model rollback,Critical
+FR-025,Detect model drift and calibration degradation,Critical
+FR-026,Persist evidence package for each recommendation,Critical
+FR-027,Provide plant/line/run/material/product views,High
+FR-028,Support multimodal inspection as an extension point,Medium
+FR-029,Represent relationships in an industrial knowledge graph,High
+FR-030,Enforce separation between advisory AI and safety/control authority,Critical
