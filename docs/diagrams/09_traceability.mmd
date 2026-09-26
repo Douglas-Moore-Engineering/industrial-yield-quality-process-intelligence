@@ -1,0 +1,22 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["BUSINESS NEED"]
+  A["Increase Conforming Yield"]
+  B["Reduce Diagnosis Time"]
+  C["Preserve Safe Operations"]
+end
+subgraph L2["SYSTEM REQUIREMENTS"]
+  A --> D["Predict Risk"]
+  B --> E["Trace Material / Evidence"]
+  C --> F["Safety / Fail-safe"]
+end
+subgraph L3["ARCHITECTURE"]
+  D --> G["Predictive Service"]
+  E --> H["Digital Thread / Evidence"]
+  F --> I["Policy / HITL / Degraded Mode"]
+end
+subgraph L4["VERIFICATION"]
+  G --> J["Temporal Holdout + Calibration"]
+  H --> K["Genealogy Reconstruction"]
+  I --> L["Safety / Outage / Audit Tests"]
+end
