@@ -1,0 +1,21 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["PLANT / OT"]
+  A["Sensors / PLC / DCS / Historian"] --> B["Read Gateway / Buffer"]
+end
+subgraph L2["INDUSTRIAL DATA"]
+  B --> C["Raw / Immutable"]
+  C --> D["Validated / Contextualized"]
+  D --> E["Digital Thread / Evidence"]
+end
+subgraph L3["AI / ANALYTICS"]
+  E --> F["Features / Models / Twin"]
+  F --> G["Risk + Evidence"]
+end
+subgraph L4["DECISION / OPERATIONS"]
+  G --> H{"Guardrails pass?"}
+  H -->|Yes| I["Operator / Engineer Review"]
+  H -->|No| J["Abstain / Log"]
+  I --> K["Authorized Existing Work / Control"]
+end
+K -. "Outcome feedback" .-> G
