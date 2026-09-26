@@ -1,0 +1,24 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
+flowchart TB
+subgraph L1["OBSERVE"]
+  A["Process Telemetry"] --> B["Production Context"]
+  B --> C["Quality / Maintenance Context"]
+end
+subgraph L2["UNDERSTAND"]
+  C --> D["Contextualize Manufacturing State"]
+  D --> E["Detect Anomaly / Drift"]
+  E --> F["Predict Yield / Quality Risk"]
+end
+subgraph L3["DECIDE"]
+  F --> G["Explain Drivers"]
+  G --> H["Simulate / Counterfactual"]
+  H --> I["Recommend Bounded Action"]
+end
+subgraph L4["AUTHORIZE & LEARN"]
+  I --> J{"Human Decision"}
+  J -->|Approve / Modify| K["Authorized Action"]
+  J -->|Reject| L["Investigate / Log"]
+  K --> M["Verify Outcome"]
+  M --> N["Learn / Update Evidence"]
+end
+N -.-> D
