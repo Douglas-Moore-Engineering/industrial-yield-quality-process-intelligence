@@ -1,0 +1,6 @@
+{
+  "python.analysis.typeCheckingMode": "basic",
+  "files.trimTrailingWhitespace": true,
+  "editor.rulers": [100],
+  "markdown.validate.enabled": true
+}
