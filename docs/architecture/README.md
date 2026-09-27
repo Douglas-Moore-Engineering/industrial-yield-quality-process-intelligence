@@ -1,6 +1,6 @@
 # Architecture Views
 
-The diagrams below render directly on GitHub from the same Mermaid definitions used as the editable source files. This keeps repository rendering and source semantics synchronized.
+The diagrams below render directly on GitHub from the same Mermaid definitions used as the editable source files. This keeps repository rendering, styling and execution semantics synchronized.
 
 ## Table of contents
 
@@ -44,6 +44,10 @@ subgraph L4["DECISION / OPERATIONS"]
 end
 K -. "Outcome feedback" .-> G
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 2. Concept of Operations
@@ -76,6 +80,10 @@ subgraph L4["AUTHORIZE & LEARN"]
 end
 N -.-> D
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 3. Functional Capability Decomposition
@@ -109,6 +117,10 @@ subgraph L4["OPERATIONS"]
   M --> N["Monitoring / Learning"]
 end
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 4. Digital Thread, Genealogy and Evidence Lineage
@@ -139,6 +151,10 @@ subgraph L4["QUALITY & EVIDENCE"]
   K --> I
 end
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 5. OT / IT Trust Zones and Security Boundary
@@ -166,6 +182,11 @@ subgraph L5["ENTERPRISE / AI"]
 end
 F -. "No direct AI control write" .-x B
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
+style L5 fill:#FFF7ED,stroke:#B97812,stroke-width:1.2px
 ```
 
 ## 6. Governed MLOps and Model Lifecycle
@@ -198,6 +219,10 @@ subgraph L4["OPERATE"]
   L -->|No| J
 end
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 7. Human-in-the-Loop Decision Workflow
@@ -228,6 +253,10 @@ subgraph L4["AUTHORIZED OPERATIONS & LEARNING"]
 end
 O4 -. "Learning signal" .-> A2
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 8. Threat Model and Defense-in-Depth
@@ -258,6 +287,10 @@ subgraph L4["CONTROLS"]
   J --> M["Signed Artifacts / HITL"]
 end
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 9. Requirements Traceability and Verification
@@ -288,6 +321,10 @@ subgraph L4["VERIFICATION"]
   I --> L["Safety / Outage / Audit Tests"]
 end
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 10. Release Pipeline and Promotion Gates
@@ -297,25 +334,34 @@ end
 ```mermaid
 %%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
-subgraph L1["ENGINEERING"]
+subgraph L1["ENGINEERING & EVIDENCE"]
   A["Code / Model / Schema Change"] --> B["Peer Review"] --> C{"Parallel validation"}
   C --> D["Unit / Contract"]
   C --> E["Integration / Replay"]
   C --> F["Security / Dependency"]
-  D --> G{"All evidence complete?"}
+  D --> G{"Evidence complete?"}
   E --> G
   F --> G
 end
 subgraph L2["PROMOTION GATES"]
-  G --> H["G0 Data Readiness"] --> I["G1 Reproducible Baseline"] --> J["G2 Offline V&V"] --> K["G3 Shadow"] --> L["G4 Advisory Canary"] --> M["G5 Production Advisory"]
+  G --> H["G0 Discovery"]
+  H --> I["G1 Architecture"]
+  I --> J["G2 Data Readiness"]
+  J --> K["G3 Model Readiness"]
+  K --> L["G4 Operational Pilot"]
+  L --> M["G5 Production Readiness"]
+  M --> N["G6 Scale-Out"]
 end
 subgraph L3["RELEASE AUTHORITY"]
-  M --> N{"Gate criteria satisfied?"}
-  N -->|Yes| O["Promote"]
-  N -->|No| P["Hold / Remediate"]
-  P -.-> A
+  N --> O{"Gate criteria satisfied?"}
+  O -->|Yes| P["Promote"]
+  O -->|No| Q["Hold / Remediate"]
+  Q -. "remediate" .-> A
 end
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
 ```
 
 ## 11. SLO, Observability and Operational Response
@@ -347,6 +393,10 @@ subgraph L4["IMPROVEMENT"]
   M --> N["Incident Record"] --> O["Post-incident Review"] --> P["Corrective Action Backlog"]
 end
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
 ## 12. Cloud-Agnostic Deployment Topology
@@ -372,5 +422,9 @@ subgraph L4["USER & GOVERNANCE"]
 end
 K -. "No direct AI write" .-x A
 
+style L1 fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.2px
+style L2 fill:#ECFEFF,stroke:#0F766E,stroke-width:1.2px
+style L3 fill:#F0FDF4,stroke:#2F7D4C,stroke-width:1.2px
+style L4 fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.2px
 ```
 
