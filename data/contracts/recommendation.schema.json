@@ -1,0 +1,27 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://dmesystems.global/schemas/iyqpis/recommendation/1.0.0",
+  "title":"IYQPIS Recommendation",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","event_id","event_time","ingest_time","source_system","plant_id","recommendation_id","model_version","risk_type","recommended_action","authority_state"],
+  "properties":{
+    "schema_version":{"type":"string","const":"1.0.0"},
+"event_id":{"type":"string","minLength":1},
+"event_time":{"type":"string","format":"date-time"},
+"ingest_time":{"type":"string","format":"date-time"},
+"source_system":{"type":"string","minLength":1},
+"plant_id":{"type":"string","minLength":1},
+"line_id":{"type":["string","null"]},
+    "recommendation_id":{"type":"string","minLength":1},
+    "run_id":{"type":["string","null"]},
+    "model_version":{"type":"string","minLength":1},
+    "feature_set_version":{"type":"string","minLength":1},
+    "risk_type":{"type":"string","minLength":1},
+    "risk_score":{"type":["number","null"],"minimum":0,"maximum":1},
+    "recommended_action":{"type":"string","minLength":1},
+    "evidence_ref":{"type":["string","null"]},
+    "constraint_set_version":{"type":["string","null"]},
+    "authority_state":{"type":"string","enum":["ADVISORY","ABSTAIN","BLOCKED"]}
+  }
+}
