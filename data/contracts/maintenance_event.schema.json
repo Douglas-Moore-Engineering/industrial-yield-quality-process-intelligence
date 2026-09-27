@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://dmesystems.global/schemas/iyqpis/maintenance-event/1.0.0",
+  "title":"IYQPIS Maintenance Event",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","event_id","event_time","ingest_time","source_system","plant_id","maintenance_event_id","asset_id","event_type"],
+  "properties":{
+    "schema_version":{"type":"string","const":"1.0.0"},
+"event_id":{"type":"string","minLength":1},
+"event_time":{"type":"string","format":"date-time"},
+"ingest_time":{"type":"string","format":"date-time"},
+"source_system":{"type":"string","minLength":1},
+"plant_id":{"type":"string","minLength":1},
+"line_id":{"type":["string","null"]},
+    "maintenance_event_id":{"type":"string","minLength":1},
+    "asset_id":{"type":"string","minLength":1},
+    "component_id":{"type":["string","null"]},
+    "work_order_id":{"type":["string","null"]},
+    "event_type":{"type":"string","enum":["INSPECTION","CORRECTIVE","PREVENTIVE","REPLACEMENT","FAILURE","ADJUSTMENT","UNKNOWN"]},
+    "failure_code":{"type":["string","null"]},
+    "completion_time":{"type":["string","null"],"format":"date-time"},
+    "notes_ref":{"type":["string","null"]}
+  }
+}
