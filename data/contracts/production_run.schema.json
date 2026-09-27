@@ -1,0 +1,26 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://dmesystems.global/schemas/iyqpis/production-run/1.0.0",
+  "title":"IYQPIS Production Run",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","event_id","event_time","ingest_time","source_system","plant_id","run_id","product_id","start_time","status"],
+  "properties":{
+    "schema_version":{"type":"string","const":"1.0.0"},
+"event_id":{"type":"string","minLength":1},
+"event_time":{"type":"string","format":"date-time"},
+"ingest_time":{"type":"string","format":"date-time"},
+"source_system":{"type":"string","minLength":1},
+"plant_id":{"type":"string","minLength":1},
+"line_id":{"type":["string","null"]},
+    "run_id":{"type":"string","minLength":1},
+    "order_id":{"type":["string","null"]},
+    "campaign_id":{"type":["string","null"]},
+    "product_id":{"type":"string","minLength":1},
+    "recipe_id":{"type":["string","null"]},
+    "start_time":{"type":"string","format":"date-time"},
+    "end_time":{"type":["string","null"],"format":"date-time"},
+    "status":{"type":"string","enum":["PLANNED","RUNNING","COMPLETE","ABORTED","UNKNOWN"]},
+    "shift_id":{"type":["string","null"]}
+  }
+}
