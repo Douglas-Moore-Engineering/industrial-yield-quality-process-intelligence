@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://dmesystems.global/schemas/iyqpis/material-lot/1.0.0",
+  "title":"IYQPIS Material Lot",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","event_id","event_time","ingest_time","source_system","plant_id","material_lot_id","material_type"],
+  "properties":{
+    "schema_version":{"type":"string","const":"1.0.0"},
+"event_id":{"type":"string","minLength":1},
+"event_time":{"type":"string","format":"date-time"},
+"ingest_time":{"type":"string","format":"date-time"},
+"source_system":{"type":"string","minLength":1},
+"plant_id":{"type":"string","minLength":1},
+"line_id":{"type":["string","null"]},
+    "material_lot_id":{"type":"string","minLength":1},
+    "material_type":{"type":"string","minLength":1},
+    "supplier_id":{"type":["string","null"]},
+    "specification_id":{"type":["string","null"]},
+    "receipt_time":{"type":["string","null"],"format":"date-time"},
+    "quantity":{"type":["number","null"],"minimum":0},
+    "quantity_unit":{"type":["string","null"]},
+    "parent_lot_ids":{"type":"array","items":{"type":"string"},"uniqueItems":true}
+  }
+}
