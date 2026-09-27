@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://dmesystems.global/schemas/iyqpis/telemetry/1.0.0",
+  "title":"IYQPIS Telemetry Event",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","event_id","event_time","ingest_time","source_system","plant_id","asset_id","tag_id","engineering_unit","value","quality_flag"],
+  "properties":{
+    "schema_version":{"type":"string","const":"1.0.0"},
+"event_id":{"type":"string","minLength":1},
+"event_time":{"type":"string","format":"date-time"},
+"ingest_time":{"type":"string","format":"date-time"},
+"source_system":{"type":"string","minLength":1},
+"plant_id":{"type":"string","minLength":1},
+"line_id":{"type":["string","null"]},
+    "asset_id":{"type":"string","minLength":1},
+    "tag_id":{"type":"string","minLength":1},
+    "engineering_unit":{"type":"string","minLength":1},
+    "value":{"type":"number"},
+    "quality_flag":{"type":"string","enum":["GOOD","UNCERTAIN","BAD","UNKNOWN"]},
+    "sequence_number":{"type":["integer","null"],"minimum":0}
+  }
+}
