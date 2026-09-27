@@ -1,6 +1,6 @@
 # Architecture Views
 
-The diagrams below render directly on GitHub. Editable Mermaid sources are versioned beside this index.
+The diagrams below render directly on GitHub from the same Mermaid definitions used as the editable source files. This keeps repository rendering and source semantics synchronized.
 
 ## Table of contents
 
@@ -8,7 +8,7 @@ The diagrams below render directly on GitHub. Editable Mermaid sources are versi
 - [2. Concept of Operations](#2-concept-of-operations)
 - [3. Functional Capability Decomposition](#3-functional-capability-decomposition)
 - [4. Digital Thread, Genealogy and Evidence Lineage](#4-digital-thread-genealogy-and-evidence-lineage)
-- [5. OT / IT Trust Zones and Security Boundary](#5-ot--it-trust-zones-and-security-boundary)
+- [5. OT / IT Trust Zones and Security Boundary](#5-ot-it-trust-zones-and-security-boundary)
 - [6. Governed MLOps and Model Lifecycle](#6-governed-mlops-and-model-lifecycle)
 - [7. Human-in-the-Loop Decision Workflow](#7-human-in-the-loop-decision-workflow)
 - [8. Threat Model and Defense-in-Depth](#8-threat-model-and-defense-in-depth)
@@ -19,9 +19,10 @@ The diagrams below render directly on GitHub. Editable Mermaid sources are versi
 
 ## 1. System Context and Authority Boundaries
 
-[Edit source](01_system_context.mmd)
+[Edit source](../diagrams/01_system_context.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["PLANT / OT"]
   A["Sensors / PLC / DCS / Historian"] --> B["Read Gateway / Buffer"]
@@ -42,13 +43,15 @@ subgraph L4["DECISION / OPERATIONS"]
   I --> K["Authorized Existing Work / Control"]
 end
 K -. "Outcome feedback" .-> G
+
 ```
 
 ## 2. Concept of Operations
 
-[Edit source](02_conops.mmd)
+[Edit source](../diagrams/02_conops.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["OBSERVE"]
   A["Process Telemetry"] --> B["Production Context"]
@@ -72,13 +75,15 @@ subgraph L4["AUTHORIZE & LEARN"]
   M --> N["Learn / Update Evidence"]
 end
 N -.-> D
+
 ```
 
 ## 3. Functional Capability Decomposition
 
-[Edit source](03_functional_decomposition.mmd)
+[Edit source](../diagrams/03_functional_decomposition.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["DATA FOUNDATION"]
   A["Ingest"] --> B["Validate"]
@@ -103,13 +108,15 @@ subgraph L4["OPERATIONS"]
   L --> M["Outcome Ledger"]
   M --> N["Monitoring / Learning"]
 end
+
 ```
 
 ## 4. Digital Thread, Genealogy and Evidence Lineage
 
-[Edit source](04_digital_thread.mmd)
+[Edit source](../diagrams/04_digital_thread.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["MATERIAL"]
   A["Supplier / Lot"] --> B["Material Batch"]
@@ -131,13 +138,15 @@ subgraph L4["QUALITY & EVIDENCE"]
   J --> K["Recommendation / Decision"]
   K --> I
 end
+
 ```
 
 ## 5. OT / IT Trust Zones and Security Boundary
 
-[Edit source](05_ot_it_security.mmd)
+[Edit source](../diagrams/05_ot_it_security.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["LEVEL 0/1 — FIELD"]
   A["Sensors / Actuators"]
@@ -156,13 +165,15 @@ subgraph L5["ENTERPRISE / AI"]
   E --> F["AI / MLOps / Analytics"]
 end
 F -. "No direct AI control write" .-x B
+
 ```
 
 ## 6. Governed MLOps and Model Lifecycle
 
-[Edit source](06_mlops_lifecycle.mmd)
+[Edit source](../diagrams/06_mlops_lifecycle.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["DEVELOP"]
   A["Data / Feature Version"] --> B["Train"]
@@ -186,13 +197,15 @@ subgraph L4["OPERATE"]
   L -->|Yes| H
   L -->|No| J
 end
+
 ```
 
 ## 7. Human-in-the-Loop Decision Workflow
 
-[Edit source](07_hitl_workflow.mmd)
+[Edit source](../diagrams/07_hitl_workflow.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["AI / ANALYTICS"]
   A1["Rising Process Risk"] --> A2["Risk + Evidence"] --> A3["Candidate Bounded Action"]
@@ -214,13 +227,15 @@ subgraph L4["AUTHORIZED OPERATIONS & LEARNING"]
   D1 -->|No — abstain| O3
 end
 O4 -. "Learning signal" .-> A2
+
 ```
 
 ## 8. Threat Model and Defense-in-Depth
 
-[Edit source](08_threat_model.mmd)
+[Edit source](../diagrams/08_threat_model.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["THREAT SOURCES"]
   A["External Attacker"] --> D["Threat Correlation"]
@@ -242,13 +257,15 @@ subgraph L4["CONTROLS"]
   I --> L["Validation / Provenance"]
   J --> M["Signed Artifacts / HITL"]
 end
+
 ```
 
 ## 9. Requirements Traceability and Verification
 
-[Edit source](09_traceability.mmd)
+[Edit source](../diagrams/09_traceability.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["BUSINESS NEED"]
   A["Increase Conforming Yield"]
@@ -270,13 +287,15 @@ subgraph L4["VERIFICATION"]
   H --> K["Genealogy Reconstruction"]
   I --> L["Safety / Outage / Audit Tests"]
 end
+
 ```
 
 ## 10. Release Pipeline and Promotion Gates
 
-[Edit source](10_release_pipeline.mmd)
+[Edit source](../diagrams/10_release_pipeline.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["ENGINEERING"]
   A["Code / Model / Schema Change"] --> B["Peer Review"] --> C{"Parallel validation"}
@@ -296,13 +315,15 @@ subgraph L3["RELEASE AUTHORITY"]
   N -->|No| P["Hold / Remediate"]
   P -.-> A
 end
+
 ```
 
 ## 11. SLO, Observability and Operational Response
 
-[Edit source](11_observability.mmd)
+[Edit source](../diagrams/11_observability.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["HEALTH SIGNALS"]
   A["Pipeline / Ingestion"] --> E["Observability Aggregator"]
@@ -325,13 +346,15 @@ end
 subgraph L4["IMPROVEMENT"]
   M --> N["Incident Record"] --> O["Post-incident Review"] --> P["Corrective Action Backlog"]
 end
+
 ```
 
 ## 12. Cloud-Agnostic Deployment Topology
 
-[Edit source](12_deployment_topology.mmd)
+[Edit source](../diagrams/12_deployment_topology.mmd)
 
 ```mermaid
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":34,"rankSpacing":42},"themeVariables":{"fontFamily":"Arial","fontSize":"16px","primaryTextColor":"#1F2937","lineColor":"#475569","clusterBkg":"#FFFFFF","clusterBorder":"#CBD5E1"}}}%%
 flowchart TB
 subgraph L1["PLANT / EDGE RUNTIME"]
   A["PLC / DCS / Historian / MES"] --> B["Read Gateway + Buffer"] --> C["Local Cache / Optional Edge Inference"]
@@ -348,4 +371,6 @@ subgraph L4["USER & GOVERNANCE"]
   L -.-> D
 end
 K -. "No direct AI write" .-x A
+
 ```
+
