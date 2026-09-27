@@ -1,0 +1,27 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://dmesystems.global/schemas/iyqpis/decision-outcome/1.0.0",
+  "title":"IYQPIS Decision and Outcome",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","event_id","event_time","ingest_time","source_system","plant_id","decision_id","recommendation_id","disposition","actor_id"],
+  "properties":{
+    "schema_version":{"type":"string","const":"1.0.0"},
+"event_id":{"type":"string","minLength":1},
+"event_time":{"type":"string","format":"date-time"},
+"ingest_time":{"type":"string","format":"date-time"},
+"source_system":{"type":"string","minLength":1},
+"plant_id":{"type":"string","minLength":1},
+"line_id":{"type":["string","null"]},
+    "decision_id":{"type":"string","minLength":1},
+    "recommendation_id":{"type":"string","minLength":1},
+    "actor_id":{"type":"string","minLength":1},
+    "actor_role":{"type":["string","null"]},
+    "disposition":{"type":"string","enum":["APPROVE","MODIFY","REJECT","INVESTIGATE"]},
+    "modified_action":{"type":["string","null"]},
+    "rationale":{"type":["string","null"]},
+    "execution_ref":{"type":["string","null"]},
+    "outcome_status":{"type":["string","null"],"enum":["STABILIZED","NO_CHANGE","WORSENED","UNKNOWN",null]},
+    "outcome_observed_at":{"type":["string","null"],"format":"date-time"}
+  }
+}
