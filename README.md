@@ -108,15 +108,18 @@ K -. "Outcome feedback" .-> G
 | 2 | [Concept of operations and stakeholders](docs/02-conops-and-stakeholders.md) |
 | 3 | [Requirements and traceability](docs/03-requirements-and-traceability.md) |
 | 4 | [Data architecture and digital thread](docs/04-data-architecture-and-digital-thread.md) |
-| 5 | [AI/ML and decision intelligence](docs/05-ai-ml-and-decision-intelligence.md) |
-| 6 | [Security architecture and threat model](docs/06-security-and-threat-model.md) |
-| 7 | [SLOs, observability and operating model](docs/07-slos-observability-and-operations.md) |
-| 8 | [Testing, release gates and acceptance](docs/08-testing-release-gates-and-acceptance.md) |
-| 9 | [Azure entry gate](docs/09-azure-entry-gate.md) |
-| 10 | [Capacity and performance planning](docs/10-capacity-and-performance-planning.md) |
-| 11 | [Architecture trade studies](docs/11-architecture-trade-studies.md) |
-| 12 | [Architecture decision records](docs/12-architecture-decisions.md) |
-| 13 | [Runbooks and implementation backlog](docs/13-runbooks-and-backlog.md) |
+| 5 | [Integration and interface architecture](docs/integration-and-interface-architecture.md) |
+| 6 | [AI/ML and decision intelligence](docs/05-ai-ml-and-decision-intelligence.md) |
+| 7 | [Model validation, V&V and trustworthiness](docs/model-validation-vv-trustworthiness.md) |
+| 8 | [Security architecture and threat model](docs/06-security-and-threat-model.md) |
+| 9 | [SLOs, observability and operating model](docs/07-slos-observability-and-operations.md) |
+| 10 | [Testing, release gates and acceptance](docs/08-testing-release-gates-and-acceptance.md) |
+| 11 | [Azure entry gate](docs/09-azure-entry-gate.md) |
+| 12 | [Capacity and performance planning](docs/10-capacity-and-performance-planning.md) |
+| 13 | [Architecture trade studies](docs/11-architecture-trade-studies.md) |
+| 14 | [Architecture decision records](docs/12-architecture-decisions.md) |
+| 15 | [Runbooks and implementation backlog](docs/13-runbooks-and-backlog.md) |
+| 16 | [Research and standards basis](docs/research-and-standards-basis.md) |
 | Appendix A | [KPI dictionary](docs/appendix-a-kpi-dictionary.md) |
 | Appendix B | [Assumptions register](docs/appendix-b-assumptions-register.md) |
 | Appendix C | [Reference set](docs/appendix-c-reference-set.md) |
@@ -131,6 +134,8 @@ K -. "Outcome feedback" .-> G
 | [Traceability matrix](requirements/traceability.csv) | Need → requirement → verification → evidence → gate |
 | [Architecture decisions](architecture/architecture_decisions.csv) | Accepted pre-Azure ADR register |
 | [Azure-entry criteria](governance/azure_entry_criteria.csv) | Evidence required before Azure mapping/implementation |
+| [Pre-Azure gate status](governance/pre_azure_gate_status.md) | Complete/partial/pending evidence by gate |
+| [Canonical data contracts](data/contracts/README.md) | Versioned cloud-neutral event contracts |
 | [Security policy](SECURITY.md) | Repository and cyber-physical security expectations |
 | [Contribution standard](CONTRIBUTING.md) | Engineering change discipline |
 
