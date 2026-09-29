@@ -15,6 +15,7 @@ Enterprise industrial AI and systems-engineering architecture for predicting, ex
 - [Requirements and governance](#requirements-and-governance)
 - [Architecture diagrams](#architecture-diagrams)
 - [Repository structure](#repository-structure)
+- [Implemented Azure reference environment](#implemented-azure-reference-environment)
 - [Current release state](#current-release-state)
 - [Next phase](#next-phase)
 - [Confidentiality](#confidentiality)
@@ -31,11 +32,11 @@ The platform then applies statistical monitoring, predictive quality/yield model
 
 ## Current architecture gate
 
-**Pre-Azure Architecture & Systems Engineering Baseline v0.6**
+**Architecture baseline:** Pre-Azure Architecture & Systems Engineering Baseline v0.6  
+**Current implementation gate:** **G2 REFERENCE VALIDATION — PASS (Lenze)**  
+**Customer production gate:** **G4/G5 — BLOCKED PENDING SITE VALIDATION AND OPERATIONAL ACCEPTANCE**
 
-Status: **LENZE REFERENCE BENCHMARK PASSES IN AZURE; CUSTOMER PRODUCTION RELEASE BLOCKED**
-
-The v0.6 baseline remains the cloud-neutral design record. The current implementation uses an approved private Azure development platform in East US 2 with on-demand data jobs. See [current project status](PROJECT_STATUS.md), [Azure operations](infra/azure/README.md), and the [reference AI build sequence](runbooks/reference-ai.md).
+The v0.6 baseline remains the cloud-neutral design record. The implemented reference environment now runs on a private Azure development platform in East US 2 with on-demand execution. The Lenze geared-motor quality-inspection reference model has passed its predefined G2 point-estimate thresholds locally and in Azure. Customer/site commissioning, plant-specific acceptance criteria, operational assurance and production authorization remain intentionally gated. See [current project status](PROJECT_STATUS.md), [Azure operations](infra/azure/README.md), and the [reference AI build sequence](runbooks/reference-ai.md).
 
 Copper rod/wire manufacturing is the first validation scenario only. The core architecture remains material- and industry-agnostic.
 
@@ -201,6 +202,28 @@ Diagram notation standard: [DIAGRAM_NOTATION_STANDARD_v0.6.md](docs/DIAGRAM_NOTA
 └── tests/
 ```
 
+## Implemented Azure reference environment
+
+The current implementation is a **private reference-validation environment**, not a customer production deployment.
+
+| Capability | Current state |
+|---|---|
+| Private Azure development platform | **Deployed and verified** |
+| Virtual network, private DNS and private endpoints | **Deployed** |
+| Managed identities and RBAC-scoped workload access | **Implemented** |
+| Azure Key Vault | **Private; deployed** |
+| Azure Container Registry | **Private; deployed** |
+| ADLS Gen2 governed data lake | **Private; deployed** |
+| Log Analytics and Application Insights | **Deployed** |
+| Azure Container Apps Jobs | **On-demand reference execution verified** |
+| Azure ML workspace foundation | **Deployed; private workspace integration partially verified** |
+| Azure Managed Grafana | **Deployed; dashboard import/readback passed, query-path issue remains** |
+| Model/evidence artifact integrity | **Checksum verification implemented and exercised** |
+| Deterministic decision replay | **Verified across Windows/Linux/Azure for the frozen Lenze reference model** |
+| Customer OT connectivity / live production inference | **Not deployed** |
+
+This environment demonstrates the reference implementation and its controls. It does not establish customer production readiness, site-specific reliability, plant acceptance, or business outcomes.
+
 ## Current release state
 
 The development platform and sample-data pipeline are deployed in Azure. This is a **reference industrial manufacturing validation environment**, not a customer production deployment. No real plant, customer line or plant owner is approved.
@@ -215,13 +238,17 @@ Current evidence state:
 - cloud implementation: private development platform and on-demand data pipeline deployed and verified
 - data engineering: five sample datasets, 1,104,500 validated records; remote checksum and replay acceptance passed
 - reference AI: chronological quality benchmark, shadow guards, monitoring, local review ledger and rollback implemented; Azure execution and reproducible replay passed
+- Lenze reference validation: **PASS at G2** — 65% anomaly recall and 7.74% false-alert rate on the publisher test partition, with frozen artifacts and Azure evidence retained
+- SECOM reference track: independent confirmation remains incomplete; no production promotion claim
 - production data: not yet onboarded
-- model performance: deployed baseline fails; a new frozen candidate meets development criteria, with independent confirmation pending
+- customer/site validation: not yet performed
 - business ROI: not yet claimed
 
 ## Next phase
 
-The [reference AI validation sequence](runbooks/reference-ai.md) is implemented and verified in Azure. A future real pilot requires approved source/plant ownership, feature availability and warning-horizon evidence, quality thresholds, security and recovery acceptance. G4/G5 production advisory and G6 advanced authority remain blocked. Copper rod/wire remains illustrative only.
+The Lenze reference-model G2 validation sequence is complete and verified in Azure. The next meaningful advancement is **customer/site adaptation and operational assurance**, not additional tuning merely to improve an already passing reference result.
+
+A future real pilot requires approved source/plant ownership, upstream feature provenance and availability, warning-horizon evidence, plant-specific process and quality thresholds, IAM/SSO mapping, production SLO/RPO/RTO targets, security and recovery acceptance, live shadow/canary evidence and plant-owner approval. G4/G5 production advisory and G6 advanced authority remain blocked until those gates are satisfied. Copper rod/wire remains illustrative only.
 
 ## Confidentiality
 
