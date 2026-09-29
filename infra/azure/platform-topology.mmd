@@ -1,0 +1,23 @@
+flowchart TB
+  CI[CI: Bicep + Checkov] --> Source[Reviewed infrastructure code]
+  Source --> ARM[ARM: validate / what-if / deploy]
+  subgraph Company[Company subscription: platform resource group]
+    ARM --> VNet
+    subgraph VNet[Isolated platform VNet]
+      Runner[Reserved runner subnet: no compute]
+      PE[Private endpoint subnet]
+      DNS[Private DNS links]
+      Runner -->|HTTPS only| PE
+      Runner --> DNS
+    end
+    PE --> KV[Key Vault: RBAC / purge protection]
+    PE --> ACR[Premium container registry]
+    PE --> AMPLS[Private Monitor scope]
+    AMPLS --> LA[Log Analytics]
+    AMPLS --> AI[Application Insights]
+    KV -. Diagnostics .-> LA
+    ACR -. Diagnostics .-> LA
+    Publisher[Publisher identity] -. AcrPush .-> ACR
+    Runtime[Runtime identity] -. AcrPull .-> ACR
+  end
+  OT[Plant / OT: no connection provisioned]

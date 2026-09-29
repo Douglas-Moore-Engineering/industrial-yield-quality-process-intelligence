@@ -1,0 +1,73 @@
+name: Platform deployment
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Apply reviewed changes (false previews only)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: platform-dev
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: az bicep install --version v0.47.16
+      - run: az bicep build --file infra/foundation-ci.bicep --outfile "$RUNNER_TEMP/platform.json"
+      - run: pip install checkov==3.3.20
+      - run: checkov -d infra/ --framework bicep --compact
+      - shell: pwsh
+        run: |
+          ./infra/azure/Test-PlatformGuards.ps1
+          ./infra/azure/Test-CiGuards.ps1
+      - run: python -m unittest discover -s infra/azure -p test_private_probe.py
+
+  deploy:
+    needs: validate
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: platform-dev
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      PLATFORM_PARAMETERS: ${{ secrets.PLATFORM_PARAMETERS }}
+      PLATFORM_RESOURCE_GROUP: ${{ vars.PLATFORM_RESOURCE_GROUP }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required environment settings
+        shell: bash
+        run: |
+          test -n "$AZURE_CLIENT_ID" && test -n "$AZURE_TENANT_ID" && test -n "$AZURE_SUBSCRIPTION_ID"
+          test -n "$PLATFORM_PARAMETERS" && test -n "$PLATFORM_RESOURCE_GROUP"
+          printf '%s' "$PLATFORM_PARAMETERS" > "$RUNNER_TEMP/parameters.json"
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - run: az bicep install --version v0.47.16
+      - name: Preview and check destructive changes
+        shell: pwsh
+        run: |
+          ./infra/azure/Invoke-CiDeployment.ps1 -ResourceGroup $env:PLATFORM_RESOURCE_GROUP -ParametersFile "$env:RUNNER_TEMP/parameters.json" -PreviewFile "$env:RUNNER_TEMP/preview.json"
+      - name: Apply explicitly requested deployment
+        if: inputs.apply
+        shell: pwsh
+        run: |
+          ./infra/azure/Invoke-CiDeployment.ps1 -ResourceGroup $env:PLATFORM_RESOURCE_GROUP -ParametersFile "$env:RUNNER_TEMP/parameters.json" -PreviewFile "$env:RUNNER_TEMP/preview.json" -Apply
+      - name: Remove temporary parameter and preview files
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/parameters.json" "$RUNNER_TEMP/preview.json"

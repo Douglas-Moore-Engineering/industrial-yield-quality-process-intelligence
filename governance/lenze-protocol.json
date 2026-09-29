@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "scope": "Precomputed-feature reference benchmark; not production acceptance",
+  "target": "class_label: anomalous=1, normal=0; quality_label not used",
+  "features": "Original_Features columns excluding number and all *_opt columns; optimized feature fitting provenance is unverified",
+  "model": {"type": "IsolationForest", "n_estimators": 500, "max_samples": 256, "random_state": 42},
+  "calibration": "Publisher training variants whose SHA256 with lenze-v1 salt modulo 5 equals 0; other training variants fit model",
+  "cutoff": "95th percentile higher of negative score_samples on normal calibration records; alert strictly above cutoff",
+  "test": "Publisher test partition; no cutoff or candidate selection on test outcomes",
+  "minimum_recall": 0.5,
+  "maximum_false_alert_fraction_of_all_rows": 0.1,
+  "limitations": "Precomputed feature extraction provenance and weak labels limit acceptance scope; preserve all test rows"
+}

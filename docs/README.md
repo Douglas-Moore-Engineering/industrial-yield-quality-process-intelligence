@@ -1,6 +1,8 @@
 # IYQPIS Engineering Documentation
 
-This directory is the authoritative pre-Azure architecture package for the **Industrial Yield, Quality & Process Intelligence System (IYQPIS)**.
+This directory contains the architecture package and deployment evidence for the **Industrial Yield, Quality & Process Intelligence System (IYQPIS)**.
+
+**Azure reference batch deployment: verified.** See [deployment results](azure-validation-results.md) for the successful cloud execution, model metrics and reproducibility evidence.
 
 ## Table of contents
 

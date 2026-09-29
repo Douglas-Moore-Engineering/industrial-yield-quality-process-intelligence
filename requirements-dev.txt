@@ -1,0 +1,4 @@
+pytest>=7.4
+-r requirements-data.txt
+-r requirements-ml.txt
+pandas>=2.2

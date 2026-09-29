@@ -2,6 +2,8 @@
 
 Enterprise industrial AI and systems-engineering architecture for predicting, explaining, tracing and helping prevent yield loss, quality deviations and process instability across manufacturing environments.
 
+**Deployed on Azure East US 2: reference batch-inference system.** The private Container Apps job successfully reproduced 1,576 model decisions. See [deployment evidence and results](docs/azure-validation-results.md).
+
 ## Table of contents
 
 - [System purpose](#system-purpose)
@@ -31,9 +33,9 @@ The platform then applies statistical monitoring, predictive quality/yield model
 
 **Pre-Azure Architecture & Systems Engineering Baseline v0.6**
 
-Status: **PRE-AZURE READY FOR CLOUD MAPPING**
+Status: **LENZE REFERENCE BENCHMARK PASSES IN AZURE; CUSTOMER PRODUCTION RELEASE BLOCKED**
 
-The design is intentionally cloud-agnostic at this gate. No Azure service, SKU, subscription hierarchy, region, network resource, storage tier, compute resource or IaC deployment is considered selected or approved.
+The v0.6 baseline remains the cloud-neutral design record. The current implementation uses an approved private Azure development platform in East US 2 with on-demand data jobs. See [current project status](PROJECT_STATUS.md), [Azure operations](infra/azure/README.md), and the [reference AI build sequence](runbooks/reference-ai.md).
 
 Copper rod/wire manufacturing is the first validation scenario only. The core architecture remains material- and industry-agnostic.
 
@@ -201,7 +203,7 @@ Diagram notation standard: [DIAGRAM_NOTATION_STANDARD_v0.6.md](docs/DIAGRAM_NOTA
 
 ## Current release state
 
-The system is **not deployed**.
+The development platform and sample-data pipeline are deployed in Azure. This is a **reference industrial manufacturing validation environment**, not a customer production deployment. No real plant, customer line or plant owner is approved.
 
 Current evidence state:
 - architecture baseline: complete through pre-Azure design
@@ -210,23 +212,16 @@ Current evidence state:
 - architecture trade studies: established
 - release gates: established
 - architecture diagrams: versioned and GitHub-renderable
-- cloud implementation: intentionally not started
+- cloud implementation: private development platform and on-demand data pipeline deployed and verified
+- data engineering: five sample datasets, 1,104,500 validated records; remote checksum and replay acceptance passed
+- reference AI: chronological quality benchmark, shadow guards, monitoring, local review ledger and rollback implemented; Azure execution and reproducible replay passed
 - production data: not yet onboarded
-- model performance: not yet claimed
+- model performance: deployed baseline fails; a new frozen candidate meets development criteria, with independent confirmation pending
 - business ROI: not yet claimed
 
 ## Next phase
 
-The next phase is **Azure architecture mapping**, not immediate provisioning.
-
-It will:
-1. map each cloud-agnostic capability to Azure service alternatives
-2. conduct documented service trade studies
-3. define landing-zone, identity, network and private-access topology
-4. define data, MLOps, security and observability services
-5. quantify capacity and cost from measured inputs
-6. produce IaC and deployment gates
-7. preserve the current OT/HITL/safety boundaries
+The [reference AI validation sequence](runbooks/reference-ai.md) is implemented and verified in Azure. A future real pilot requires approved source/plant ownership, feature availability and warning-horizon evidence, quality thresholds, security and recovery acceptance. G4/G5 production advisory and G6 advanced authority remain blocked. Copper rod/wire remains illustrative only.
 
 ## Confidentiality
 

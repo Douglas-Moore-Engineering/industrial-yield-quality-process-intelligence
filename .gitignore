@@ -40,6 +40,8 @@ data/processed/
 *.tfstate
 *.tfstate.*
 .terraform/
+infra/azure/*.local.json
+infra/azure/*.local.log
 
 # Office temp
 ~$*.docx

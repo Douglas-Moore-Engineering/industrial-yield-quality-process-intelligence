@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {"value": "eastus2"},
+    "storageAccountName": {"value": "REPLACE_PRIVATE_LAKE"},
+    "registryName": {"value": "REPLACE_PRIVATE_REGISTRY"},
+    "workspaceName": {"value": "log-iyqpis-dev"},
+    "infrastructureSubnetId": {"value": "REPLACE_WITH_LOCAL_SUBNET_ID"},
+    "image": {"value": "REPLACE_WITH_PRIVATE_REGISTRY_IMAGE_AT_SHA256_DIGEST"},
+    "ingestTime": {"value": "2026-09-28T00:00:00Z"},
+    "datasets": {"value": "manufacturing-spc"}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "experiment": "secom-quality-v3-expanded-development",
+  "reason": "V2 and subsequent causal-feature/RBF development screens did not meet calibration criteria",
+  "acceptance_criteria": {
+    "minimum_recall": 0.5,
+    "maximum_false_alert_fraction_of_all_rows": 0.1
+  },
+  "criteria_change": "none",
+  "development_data": "All original SECOM rows are exposed development data. Fit classifiers on the original training plus calibration rows; use the former 317-row test partition for development selection/calibration only.",
+  "candidates": "Initial fixed 19 specifications reached 7/17 development recall. Follow-up: 40 logistic candidates, features 3/5/8/12/15/20/40/60 and C 0.0001/0.001/0.003/0.03/0.3. These are development searches, not repeated confirmation tests.",
+  "selection": "On development validation, maximize runtime-guarded recall subject to the fixed false-alert budget; break ties by fewer false alerts, then higher average precision",
+  "confirmation": "A separately supplied, nonoverlapping, later dataset with the same SECOM process and feature/label definitions is required. The supplied Zenodo macromilling dataset is incompatible; see macromilling-compatibility.md. No confirmation evaluation has run.",
+  "interpretation": "Any passing result on original SECOM is development evidence, not final acceptance",
+  "production_authority": "blocked"
+}
