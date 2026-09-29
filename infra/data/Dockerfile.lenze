@@ -1,0 +1,7 @@
+# Build using the isolated context documented in runbooks/lenze-azure-verification.md.
+FROM iyqpis-ai:review@sha256:de9618307efce5ae57d0d66ffe22c659194c0cc42e8078cb520a7305ed519f47
+COPY model.joblib freeze.json evaluation.json Meta_Data.csv Original_Features.csv /app/lenze/
+COPY lenze.py azure_lenze.py /app/src/iyqpis/
+COPY monitoring.py /app/src/iyqpis/
+COPY baseline.json /app/lenze/
+ENTRYPOINT ["python", "-m", "iyqpis.azure_lenze"]

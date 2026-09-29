@@ -1,0 +1,103 @@
+{
+  "uid": "iyqpis-reference",
+  "title": "IYQPIS Reference Operations",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "",
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "__inputs": [
+    {
+      "name": "DS_AZURE_MONITOR",
+      "label": "Azure Monitor (managed identity)",
+      "type": "datasource",
+      "pluginId": "grafana-azure-monitor-datasource",
+      "pluginName": "Azure Monitor"
+    }
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "workspaceResourceId",
+        "type": "constant",
+        "query": "REPLACE_WITH_APPROVED_LOG_WORKSPACE_RESOURCE_ID",
+        "hide": 2
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "text",
+      "title": "Observation scope",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 3
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "On-demand reference validation. No events means no observation, not healthy production. Model-health telemetry is prepared but is not yet deployed. Production release remains blocked."
+      }
+    },
+    {
+      "id": 2,
+      "type": "table",
+      "title": "Job events",
+      "gridPos": {
+        "x": 0,
+        "y": 3,
+        "w": 24,
+        "h": 9
+      },
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "${DS_AZURE_MONITOR}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "queryType": "Azure Log Analytics",
+          "azureLogAnalytics": {
+            "query": "ContainerAppSystemLogs | where $__timeFilter(TimeGenerated) | where JobName startswith \"job-iyqpis-dev-data\" | project TimeGenerated, JobName, Reason, Log | order by TimeGenerated desc",
+            "resources": [
+              "${workspaceResourceId}"
+            ],
+            "resultFormat": "table"
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "table",
+      "title": "Model and data observations",
+      "gridPos": {
+        "x": 0,
+        "y": 12,
+        "w": 24,
+        "h": 9
+      },
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "${DS_AZURE_MONITOR}"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "queryType": "Azure Log Analytics",
+          "azureLogAnalytics": {
+            "query": "ContainerAppConsoleLogs | where $__timeFilter(TimeGenerated) | where JobName startswith \"job-iyqpis-dev-data\" | extend event=parse_json(Log) | where tostring(event.event_type)==\"iyqpis_monitoring\" | project TimeGenerated, JobName, event | order by TimeGenerated desc",
+            "resources": [
+              "${workspaceResourceId}"
+            ],
+            "resultFormat": "table"
+          }
+        }
+      ]
+    }
+  ]
+}

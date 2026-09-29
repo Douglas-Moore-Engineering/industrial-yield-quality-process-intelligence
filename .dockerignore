@@ -1,0 +1,15 @@
+**
+!requirements-data.txt
+!requirements-ml.txt
+!infra/
+!infra/data/
+!infra/data/Dockerfile
+!infra/data/Dockerfile.ai
+!src/
+!src/iyqpis/
+!src/iyqpis/**
+!data/
+!data/contracts/
+!data/contracts/**
+**/__pycache__
+**/*.pyc

@@ -1,0 +1,11 @@
+flowchart LR
+    D[Private ADLS verified data run] --> J[Existing manual Consumption job]
+    R[Private ACR immutable AI image] --> J
+    J --> F[Feature join and chronological partitions]
+    F --> T[Train and calibrate reference model]
+    T --> V[Held-out evaluation and shadow guard checks]
+    V --> E[Private model bundle and reference evidence]
+    V --> B[Production promotion BLOCKED]
+    J --> L[Existing monitoring]
+    H[Simulated local human review] --> E
+    B --> N[No plant control connection]

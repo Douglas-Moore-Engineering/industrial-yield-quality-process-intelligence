@@ -1,0 +1,6 @@
+process_id,part_name,characteristic,unit,lsl,usl,target_cpk
+1,Shaft Diameter,outer diameter,mm,24.95,25.05,1.67
+2,Bore Diameter,inner bore diameter,mm,39.96,40.04,1.33
+3,Housing Bolt Torque,final assembly torque,Nm,40.0,50.0,1.33
+4,Valve Seal Thickness,seal thickness,mm,1.92,2.08,0.85
+5,Bearing Race Width,race width,mm,11.94,12.06,1.33

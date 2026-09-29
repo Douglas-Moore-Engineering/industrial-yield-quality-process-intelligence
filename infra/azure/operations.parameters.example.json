@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "platformResourceGroupName": {"value": "rg-iyqpis-dev-platform"},
+    "stem": {"value": "iyqpis-dev"},
+    "location": {"value": "eastus2"},
+    "alertEmail": {"value": "REPLACE-ME"},
+    "monthlyBudget": {"value": 100},
+    "budgetStartDate": {"value": "REPLACE-ME"},
+    "githubSubject": {"value": ""}
+  }
+}

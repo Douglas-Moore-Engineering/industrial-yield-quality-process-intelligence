@@ -1,0 +1,17 @@
+{
+  "experiment": "secom-quality-v2",
+  "scope": "reference industrial manufacturing validation",
+  "acceptance_criteria": {
+    "minimum_recall": 0.5,
+    "maximum_false_alert_fraction_of_all_rows": 0.1
+  },
+  "criteria_change": "none; preserve the existing benchmark gate",
+  "development_data": "original SECOM training partition only for candidate selection; original calibration partition for calibration and decision-threshold fitting",
+  "candidate_selection": "fixed candidate family comparison using three forward chronological validation folds within the original training partition; select greatest mean average precision; no legacy test or new confirmation data used",
+  "candidates": "training-only univariate feature selection with regularized logistic regression, random forests, extra trees and gradient boosting",
+  "legacy_test": "already exposed; diagnostic regression evidence only, not fresh acceptance",
+  "new_confirmation": "user reports additional unseen data; location pending; seal until candidate and threshold freeze",
+  "threshold_selection": "maximize recall subject to the unchanged false-alert budget on the original calibration partition; freeze before confirmation",
+  "guarded_acceptance": "report deployed shadow guard coverage and end-to-end recall in addition to raw classifier metrics; abstentions on failures count as missed failures",
+  "promotion": "reference-only; production authority remains blocked without real pilot evidence"
+}
