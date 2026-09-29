@@ -42,15 +42,42 @@ For production builds, use this execution order unless a documented architecture
 5. **Security, privacy, and observability implementation baseline** — implement the controls required by the threat model and data classifications as part of the platform/workload foundation. Security and observability are cross-cutting; they are not deferred until the end.
 6. **Data & streaming engineering** — onboard governed data, validate contracts, implement raw/validated/contextualized/curated zones as applicable, lineage, quality controls, streaming/batch paths, retention, and digital-thread/data-product services.
 7. **Process and data baseline engineering** — establish the measured reference state from governed source/contextualized data before serious feature or model optimization. Characterize normal process behavior, outcome/base rates, variation, capability, seasonality/shift/site effects, equipment/material context, data-quality behavior, event rate, payload/burst behavior, latency/warning horizon, and alert burden.
-8. **Process and data threshold engineering** — derive and validate thresholds that are meaningful at the source/process layer, including SPC/control limits, process operating envelopes, data-quality limits, source freshness/staleness thresholds, warning-horizon targets, capacity/scaling triggers, and pilot acceptance criteria. Do not create feature- or model-derived thresholds before those artifacts exist.
+8. **Process and data threshold engineering** — derive and validate thresholds meaningful at the source/process layer, including SPC/control limits, process operating envelopes, data-quality limits, source freshness/staleness thresholds, warning-horizon targets, capacity/scaling triggers, and pilot acceptance criteria.
 9. **Feature engineering** — define, compute, validate, and version model-ready features from governed source data and the approved process/data baseline. Enforce temporal causality/point-in-time correctness, prevent leakage, preserve feature provenance, document transformations/units/windows, test feature quality, and establish reusable feature definitions before model training.
-10. **Feature baseline & validation** — after features are engineered, establish and version each production feature's reference distribution, expected range, missingness/freshness behavior, segment behavior, stability characteristics, correlation structure where relevant, and drift/domain-shift reference. Validate point-in-time correctness and training-set reproducibility before the feature is promoted for model use.
-11. **Feature store / feature management** — govern reusable features across training and inference. Maintain a feature catalog/registry, ownership, lineage, versioning, freshness, offline/online consistency, access controls, point-in-time retrieval, deprecation policy, and training-serving-skew checks. A dedicated managed feature-store product is conditional; the governed feature-management capability is required only when reuse/serving requirements justify it.
-12. **ML / MLOps / AI engineering** — implement training/evaluation, registries, model/agent services, inference, human-in-the-loop controls, evidence manifests, drift/calibration checks, and deterministic rollback on top of the established platform, approved process/data baseline and thresholds, and governed feature layer. Model-specific anomaly, classification, calibration, abstention, and decision thresholds are derived here from validation evidence; they are not part of the earlier process baseline.
+10. **Feature baseline & validation** — establish and version production-feature reference distributions, expected ranges, missingness/freshness behavior, segment behavior, stability characteristics, correlation structure where relevant, and drift/domain-shift references. Validate point-in-time correctness and training-set reproducibility before model use.
+11. **Feature store / feature management** — govern reusable features across training and inference when justified. Maintain catalog/registry, ownership, lineage, versioning, freshness, offline/online consistency, access controls, point-in-time retrieval, deprecation policy, and training-serving-skew checks.
+12. **ML / MLOps / AI engineering** — implement training/evaluation, registries, model/agent services, inference, human-in-the-loop controls, evidence manifests, drift/calibration checks, and deterministic rollback. Model-specific anomaly, classification, calibration, abstention, and decision thresholds are derived from validation evidence here.
 13. **Application / decision-intelligence integration** — implement APIs, user workflows, policy/authorization gates, recommendation/evidence surfaces, business-process integration, and alert/severity policies. Alert escalation and action thresholds are validated here against operational burden and human factors.
-14. **Security, privacy, and observability assurance** — verify that the previously implemented security/privacy/observability controls operate as designed through access tests, threat-control validation, vulnerability/supply-chain checks, audit-log verification, monitoring tests, and compliance evidence collection.
+14. **Security, privacy, and observability assurance** — verify implemented controls through access tests, threat-control validation, vulnerability/supply-chain checks, audit-log verification, monitoring tests, and compliance evidence collection.
 15. **Reliability, V&V, and operational assurance** — validate SLOs, failure modes, degraded behavior, capacity, load, backup/restore, RPO/RTO, DR, rollback, incident response, runbooks, and production-operability evidence.
-16. **Production release and continuous operation** — promote only after evidence-based release gates pass; then monitor outcomes, drift, reliability, cost, security posture, baseline validity, threshold effectiveness, and control effectiveness continuously.
+16. **Reference release & runtime verification** — prove that the deployed reference environment actually runs correctly. Verify workload execution, output correctness, deterministic replay where required, private networking, identity/RBAC, telemetry delivery, artifact integrity, rollback/restore behavior, and release evidence. A cloud resource state of `Succeeded` is not sufficient evidence.
+17. **Customer / site adaptation** — map the reference architecture to the actual customer/site context: source systems, identifiers, genealogy, IAM/RBAC, network/trust boundaries, process baselines, feature availability, warning horizon, data classification, operating constraints, and site-specific acceptance criteria.
+18. **Site validation / shadow / canary** — validate against representative customer/site data and operations. Execute shadow evaluation first, then bounded advisory canary only after the applicable thresholds, security controls, operator workflows, and rollback criteria pass.
+19. **Operational Readiness Review (ORR)** — conduct a formal readiness decision before production. Verify security, monitoring, alerting, backup/restore, RPO/RTO, capacity, runbooks, incident response, ownership/on-call, release evidence, known exceptions, and customer/site approvals.
+20. **Production release** — promote only after evidence-based production gates and ORR pass. Preserve explicit release authority, rollback capability, evidence manifests, and approved scope.
+21. **Continuous operation, change management & revalidation** — monitor outcomes, drift, reliability, cost, security posture, baseline validity, threshold effectiveness, and control effectiveness; assess every material change for invalidated evidence and required re-verification.
+
+Reference validation, customer/site validation, and production release are distinct states. Never use a passing reference benchmark as a substitute for customer/site commissioning or production authorization.
+
+## 1.2 Control-order mapping
+
+When using the 50-control framework, execute the major domains operationally as:
+
+`Controls 1–20 → Controls 36–42 → Controls 21–27 → Controls 28–35 → Controls 43–46 → Controls 47–50`
+
+Interpretation:
+
+- **Controls 1–20** define the business/system architecture and cloud foundation.
+- **Controls 36–42** establish Platform Engineering & DevSecOps before workload engineering.
+- **Controls 21–27** implement Data & Streaming Engineering on the governed platform.
+- **Process/Data Baseline and Process/Data Threshold Engineering** are execution gates between Controls 21–27 and feature/model work. They establish the measured source/process reference state and only the thresholds that can be defensibly derived at that layer.
+- **Feature Engineering → Feature Baseline & Validation → Feature Store / Feature Management (when applicable)** occur before model development. Feature reference distributions and feature-drift baselines are created only after the features exist.
+- **Controls 28–35** implement ML/MLOps/AI capabilities on governed data, platform services, approved baseline/threshold evidence, and the governed feature layer.
+- **Controls 43–46** are the formal security/privacy/observability assurance stage, while their requirements and baseline controls are designed and implemented earlier.
+- **Controls 47–50** are the formal reliability/assurance/operations stage, while reliability requirements such as SLOs, RPO/RTO, degraded mode, capacity, and rollback are defined earlier.
+- **Reference Release & Runtime Verification → Customer/Site Adaptation → Site Validation/Shadow/Canary → ORR → Production Release → Continuous Revalidation** are lifecycle gates layered after the 50-control implementation taxonomy. They do not renumber the controls; they govern evidence maturity and promotion authority.
+
+Do not build data pipelines, model infrastructure, or production AI services first and then retrofit Platform Engineering, security, observability, reliability, site validation, or operational-readiness controls afterward.
 
 
 ## 1.3 Thresholds as verification and release criteria
@@ -100,25 +127,6 @@ Examples of threshold directionality:
 
 Apply this verification-driven loop at every relevant lifecycle layer: data, process, features, models, application/decision intelligence, platform, security, reliability, and business/operational acceptance.
 
-### 1.2 Control-order mapping
-
-When using the 50-control framework, execute the major domains operationally as:
-
-`Controls 1–20 → Controls 36–42 → Controls 21–27 → Controls 28–35 → Controls 43–46 → Controls 47–50`
-
-Interpretation:
-
-- **Controls 1–20** define the business/system architecture and cloud foundation.
-- **Controls 36–42** establish Platform Engineering & DevSecOps before workload engineering.
-- **Controls 21–27** implement Data & Streaming Engineering on the governed platform.
-- **Process/Data Baseline and Process/Data Threshold Engineering** are execution gates between Controls 21–27 and feature/model work. They establish the measured source/process reference state and only the thresholds that can be defensibly derived at that layer.
-- **Feature Engineering → Feature Baseline & Validation → Feature Store / Feature Management (when applicable)** occur before model development. Feature reference distributions and feature-drift baselines are created only after the features exist.
-- **Controls 28–35** implement ML/MLOps/AI capabilities on governed data, platform services, approved baseline/threshold evidence, and the governed feature layer.
-- **Controls 43–46** are the formal security/privacy/observability assurance stage, while their requirements and baseline controls are designed and implemented earlier.
-- **Controls 47–50** are the formal reliability/assurance/operations stage, while reliability requirements such as SLOs, RPO/RTO, degraded mode, capacity, and rollback are defined earlier.
-
-Do not build data pipelines, model infrastructure, or production AI services first and then retrofit Platform Engineering, security, observability, or reliability controls afterward.
-
 ---
 
 # 2. DME Repository Standard
@@ -167,6 +175,11 @@ Adapt names when domain-specific, but preserve the structure and purpose.
 │   ├── extensions.json
 │   ├── settings.json
 │   └── tasks.json
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       ├── security.yml
+│       └── release.yml
 │
 ├── docs/
 │   ├── README.md
@@ -225,6 +238,15 @@ Adapt names when domain-specific, but preserve the structure and purpose.
 ├── runbooks/
 ├── config/
 ├── outputs/
+├── models/
+│   └── manifests/
+├── evidence/
+│   ├── deployments/
+│   ├── runtime/
+│   ├── model-validation/
+│   ├── security/
+│   ├── recovery/
+│   └── releases/
 │
 └── infra/
     ├── azure/
@@ -796,7 +818,15 @@ Cover:
 - exfiltration,
 - availability,
 - rollback,
-- evidence integrity.
+- evidence integrity,
+- dependency pinning and update policy,
+- SBOM generation where applicable,
+- container/image digest pinning,
+- vulnerability and secret scanning,
+- artifact provenance/attestation,
+- artifact signing where justified by risk,
+- release-identity separation,
+- protected promotion paths and approval boundaries.
 
 For OT/cyber-physical systems:
 
@@ -840,7 +870,18 @@ G6 Scale-Out
 G7 Bounded Automation only after separate safety assurance
 ```
 
-Do not declare GO based on synthetic tests alone. Do not declare GO while any applicable critical threshold is failed, unverified, or supported only by a weakened post-hoc criterion.
+Use explicit model/release-state terminology:
+
+- **experimental model** — exploratory; not eligible for release claims,
+- **development candidate** — under active tuning/selection,
+- **frozen reference model** — configuration and thresholds frozen for reference validation,
+- **externally validated model** — evaluated on independent data that did not influence design/tuning,
+- **site-qualified model** — validated against representative customer/site data and approved site criteria,
+- **production model** — authorized through the production release gate and ORR for a defined operating scope.
+
+Do not declare GO based on synthetic tests alone. Do not declare GO while any applicable critical threshold is failed, unverified, or supported only by a weakened post-hoc criterion. A reference-model PASS does not imply site qualification or production authorization.
+
+Every material change to schema, feature logic, model, threshold, dependency, infrastructure, identity policy, network path, runtime configuration, or operating scope must identify which evidence is invalidated, which gates must be repeated, and whether rollback remains compatible.
 
 ---
 
@@ -978,7 +1019,11 @@ When the cloud gate is reached, preserve the lifecycle order in Section 1.1. Clo
 20. execute security/privacy/observability assurance,
 21. execute performance, capacity, reliability, backup/restore, recovery and failure-injection tests,
 22. capture release evidence and resolve exceptions,
-23. only then promote to production.
+23. complete **Reference Release & Runtime Verification** for the deployed reference environment,
+24. for customer production use, perform **Customer/Site Adaptation**,
+25. execute **Site Validation / Shadow / Canary**,
+26. pass the formal **Operational Readiness Review (ORR)**,
+27. only then authorize **Production Release** for the approved operating scope.
 
 Do not use cloud implementation as a reason to skip cloud-agnostic design, and do not let an individual workload own the enterprise platform foundation. Shared platform capabilities belong to the platform layer; workload repositories consume them and contain only workload-specific infrastructure where practical.
 
@@ -998,3 +1043,250 @@ Include where appropriate:
 - `.vscode/tasks.json`,
 - `.vscode/launch.json` when debugging profiles are needed,
 - `.devcontainer/` when a reproducible containerized workstation is appropriate,
+
+---
+
+# 16. Azure Service Mapping Reference
+
+Use this section as a **candidate-service reference**, not a mandatory deployment inventory. Select Azure services only when the system requirements, trade studies, security model, operating constraints, cost model, and lifecycle gate justify them.
+
+| Capability | Candidate Azure services / patterns |
+|---|---|
+| Workforce identity | Microsoft Entra ID |
+| Workload identity | Managed Identities / Workload Identity Federation |
+| Governance | Management Groups, Subscriptions, Resource Groups, Azure Policy |
+| Secrets / keys | Azure Key Vault, Managed HSM when justified |
+| Private connectivity | Azure Private Link / Private Endpoints |
+| Network security | VNets, NSGs, Azure Firewall when justified |
+| DNS | Azure Private DNS |
+| Object / data-lake storage | Azure Storage / ADLS Gen2 |
+| Event ingestion | Azure Event Hubs |
+| Messaging | Azure Service Bus when queue/topic semantics are required |
+| Container registry | Azure Container Registry |
+| Batch / event-driven containers | Azure Container Apps Jobs |
+| Application containers | Azure Container Apps |
+| Kubernetes orchestration | AKS only when workload requirements justify Kubernetes complexity |
+| ML lifecycle | Azure Machine Learning |
+| AI application services | Azure AI Foundry / Azure OpenAI when justified |
+| Metrics / logs | Azure Monitor, Log Analytics |
+| Application telemetry | Application Insights |
+| Dashboards | Azure Managed Grafana / Azure Workbooks |
+| Security posture | Microsoft Defender for Cloud |
+| SIEM / SOC integration | Microsoft Sentinel |
+| CI/CD | GitHub Actions / Azure DevOps according to enterprise constraints |
+| IaC | Bicep / Terraform according to architecture and portability requirements |
+
+Rules:
+
+- do not deploy every listed service by default,
+- preserve cloud-agnostic requirements before selecting a managed service,
+- document service-selection rationale and rejected alternatives,
+- document public/private access posture,
+- document identity, RBAC, data-classification, retention and cost consequences,
+- verify the deployed service behavior at runtime; ARM/control-plane success alone is not acceptance evidence.
+
+---
+
+# 17. Reference Release & Runtime Verification Standard
+
+A deployment is not verified merely because infrastructure provisioning reports success.
+
+For each applicable reference release, verify:
+
+- deployed resource state,
+- network/DNS reachability from an approved client or runtime,
+- private/public access posture,
+- workload identity and RBAC,
+- secret/key access boundaries,
+- artifact/image digest,
+- model/data/configuration versions,
+- workload execution,
+- output correctness,
+- deterministic replay or reproducibility where required,
+- telemetry delivery,
+- alert path where applicable,
+- rollback behavior,
+- backup/restore behavior where applicable,
+- degraded/abstain behavior,
+- evidence publication and checksum/integrity validation.
+
+Required machine-readable evidence should include, as applicable:
+
+```text
+evidence/
+├── deployments/
+│   └── deployment_manifest.json
+├── runtime/
+│   └── runtime_validation.json
+├── model-validation/
+│   └── model_acceptance.json
+├── security/
+│   └── security_validation.json
+├── recovery/
+│   └── recovery_validation.json
+└── releases/
+    ├── checksum_manifest.json
+    ├── decision_consistency.json
+    └── release_decision.json
+```
+
+Each evidence record should identify:
+
+- environment,
+- source commit,
+- IaC/template version,
+- container/image digest when applicable,
+- model ID/version,
+- dataset ID/version,
+- feature version where applicable,
+- threshold version,
+- execution/job/deployment ID,
+- test method,
+- measured result,
+- PASS/FAIL/EXCEPTION status,
+- owner/reviewer,
+- timestamp,
+- related release gate.
+
+Never convert a control-plane deployment success into a runtime PASS without runtime evidence.
+
+---
+
+# 18. Customer / Site Adaptation Standard
+
+A reference implementation becomes a customer/site candidate only after the actual operating environment is mapped.
+
+Required activities include, as applicable:
+
+- customer/site stakeholder and decision-authority confirmation,
+- source-system inventory and data-owner approval,
+- source-to-canonical field mapping,
+- equipment/line/site/material/product identifier mapping,
+- genealogy/digital-thread mapping,
+- time synchronization and timestamp semantics,
+- feature availability and warning-horizon confirmation,
+- site-specific data-quality baseline,
+- process baseline and operating-envelope establishment,
+- customer-approved thresholds and acceptance criteria,
+- site IAM/RBAC/SSO mapping,
+- network, DNS, private-access and firewall integration,
+- data classification, retention and residency approval,
+- capacity/load measurement,
+- site SLOs, RPO/RTO and support ownership,
+- threat-model update for the real environment,
+- runbook/site escalation ownership,
+- plant/process-engineering review where applicable.
+
+Do not silently inherit reference-environment assumptions into a customer site. Every unresolved assumption must remain explicit and gated.
+
+---
+
+# 19. Site Validation / Shadow / Canary Standard
+
+Site validation must progress incrementally.
+
+Recommended sequence:
+
+```text
+Representative site data validation
+        ↓
+Offline site V&V
+        ↓
+Shadow operation
+        ↓
+Operator/process-engineer review
+        ↓
+Advisory canary
+        ↓
+Measured acceptance evidence
+```
+
+Required evidence should address, where applicable:
+
+- data contract conformance,
+- feature availability and temporal correctness,
+- warning horizon,
+- model performance and calibration,
+- false-alert burden,
+- abstention/degraded behavior,
+- operator workload and human factors,
+- traceability/genealogy correctness,
+- security and access behavior,
+- monitoring/alert delivery,
+- rollback/recovery,
+- site-specific SLOs,
+- customer acceptance criteria.
+
+Do not bypass shadow operation when the system materially affects operator decisions, quality disposition, maintenance action, production scheduling, or other consequential workflows unless a documented risk assessment and release authority approve the alternative.
+
+---
+
+# 20. Operational Readiness Review (ORR)
+
+A formal ORR is required before production release for substantial systems.
+
+The ORR must determine PASS / FAIL / CONDITIONAL PASS against at least:
+
+- architecture and scope are current,
+- requirements and acceptance criteria are traceable,
+- production identity/RBAC is approved,
+- security controls are verified,
+- supply-chain controls are verified,
+- monitoring/logging is verified,
+- alerts/paging are verified,
+- dashboards are operational,
+- backup is verified,
+- restore is tested,
+- RPO/RTO are tested against approved targets,
+- capacity/load is tested,
+- degraded/abstain mode is tested,
+- rollback is tested,
+- runbooks are complete and exercised,
+- incident-response ownership is assigned,
+- on-call/support ownership is assigned,
+- change/release authority is assigned,
+- customer/site approvals are recorded,
+- exceptions have owners, expiry/review dates and explicit risk acceptance,
+- release evidence is complete and integrity-verified.
+
+A critical unresolved ORR item blocks production release unless an authorized reduced-scope or conditional-release decision explicitly addresses the risk.
+
+---
+
+# 21. Continuous Operation, Change Management & Revalidation
+
+Production operation is a continuing engineering lifecycle, not an endpoint.
+
+Monitor and govern:
+
+- source/schema changes,
+- feature changes,
+- baseline drift,
+- threshold effectiveness,
+- model drift and calibration,
+- dependency/runtime upgrades,
+- infrastructure changes,
+- identity/RBAC changes,
+- network changes,
+- cost/capacity changes,
+- security findings,
+- incidents,
+- SLO performance,
+- business/operational outcomes.
+
+For every material change, record:
+
+1. what changed,
+2. why it changed,
+3. affected requirements/risks/SLOs,
+4. invalidated evidence,
+5. tests and gates that must be repeated,
+6. migration/backfill requirements,
+7. rollback compatibility,
+8. approver/owner,
+9. effective version/date.
+
+Schema, feature, model, threshold, infrastructure and dependency changes must be versioned. Historical evidence must remain reproducible against the versions that were in force at the time.
+
+Retraining is not automatically a production release. A retrained model must pass the applicable validation, site, security, reliability and release gates for its intended operating scope.
+
