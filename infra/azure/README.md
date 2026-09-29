@@ -78,4 +78,10 @@ The existing lake is reused by the [batch implementation and release runbook](..
 
 The [reference AI build sequence](../../runbooks/reference-ai.md) reuses the existing manual job through an execution-only immutable image override. Its first Azure run completed: verified feature preparation, chronological training/calibration/test, shadow safety checks, reference review evidence and five checksum-verified model/evidence artifacts. Replay succeeded with the same model ID and matching existing artifacts. The default data job image and schedule remain unchanged.
 
-This is a reference industrial manufacturing environment with no approved customer plant or pilot owner. Copper rod/wire is illustrative. The benchmark failed its alert-recall criterion, so production promotion is blocked. No live inference service, OT control connection, production review application or validated digital twin is deployed. Use `Invoke-ReferenceAI.ps1 -ApproveRun` for approved on-demand reference validation; outputs are in the existing private curated-evidence container.
+This is a reference industrial manufacturing environment with no approved customer plant or pilot owner. Copper rod/wire is illustrative.
+
+Current model-validation state:
+- **Lenze geared-motor quality-inspection reference benchmark: G2 PASS** — 65% anomaly recall and 7.74% false-alert rate on the publisher test partition, reproduced in Azure with frozen/checksum-verified evidence.
+- **SECOM reference track: not accepted for promotion** — the earlier deployed baseline failed its alert-recall criterion and later candidate work still lacks independent confirmation.
+
+Customer production promotion remains blocked because site-specific data, plant acceptance thresholds, operational assurance and release authority are absent. No live production inference service, OT control connection, production review application or validated digital twin is deployed. Use `Invoke-ReferenceAI.ps1 -ApproveRun` for approved on-demand reference validation; outputs are retained in the private curated-evidence container.
