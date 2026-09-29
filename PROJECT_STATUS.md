@@ -58,7 +58,7 @@ A deterministic, target-independent setting-group reservation assigns 6,145 rows
 - Reference shadow guards, associative explanations, drift/calibration summaries, local review ledger, model registry/rollback, explicit-edge genealogy and historical-case retrieval.
 - Software tests exercise stale/missing/invalid/domain-shift refusal, checksum failures, audit modification, duplicate dispositions, rollback and production-promotion refusal.
 
-Azure reference AI execution and replay succeeded with the same model ID and five checksum-verified evidence artifacts. No new standing service or automatic schedule was created. The model's held-out alert recall is zero at the calibration-selected threshold; software execution is not evidence of useful production predictive performance.
+Azure reference AI execution and replay succeeded with the same model ID and checksum-verified evidence artifacts. No new standing service or automatic schedule was created. The **earlier SECOM baseline** still has zero held-out alert recall at its calibration-selected threshold and therefore remains blocked. The **Lenze reference model is the current passing G2 benchmark**, with 65% anomaly recall and a 7.74% false-alert rate on the publisher test partition. Neither result is customer production evidence.
 
 ## Release sequence
 
