@@ -22,6 +22,9 @@ resource links 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2024-06-01
   properties: { registrationEnabled: false, virtualNetwork: { id: vnet.id } }
 }]
 resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  //checkov:skip=CKV_AZURE_36:Private-only storage deliberately has no trusted-service bypass; compiled security contract verifies this stricter boundary. See governance/azure-ml-scan-disposition.md.
+  //checkov:skip=CKV_AZURE_43:stml plus uniqueString is a 17-character lowercase-alphanumeric name; compiled security contract pins the expression. See governance/azure-ml-scan-disposition.md.
+  //checkov:skip=CKV_AZURE_206:Reference-only workspace uses LRS and has no ML compute/endpoints; geo-replication is not AML workspace failover. DR remains open; compiled guard rejects scope expansion. See governance/azure-ml-scan-disposition.md.
   name: 'stml${uniqueString(resourceGroup().id)}'
   location: location
   tags: tags
@@ -39,6 +42,7 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   }
 }
 resource workspace 'Microsoft.MachineLearningServices/workspaces@2025-06-01' = {
+  //checkov:skip=CKV_AZURE_243:Rule checks managed outbound PrivateEndpoint rules, not workspace inbound Private Link. Compiled guard verifies inbound workspace/blob/file endpoints; managed compute remains absent. See governance/azure-ml-scan-disposition.md.
   name: workspaceName
   location: location
   tags: tags

@@ -16,12 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install pinned Bicep compiler
         run: az bicep install --version v0.47.16
-      - name: Compile platform
-        shell: bash
-        run: |
-          for template in infra/main.bicep infra/operations.bicep infra/foundation-ci.bicep infra/probe.bicep infra/data-network.bicep infra/data-job.bicep; do
-            az bicep build --file "$template" --outfile "$RUNNER_TEMP/$(basename "$template" .bicep).json"
-          done
+      - name: Compile all entrypoints and verify ML security contract
+        run: bash infra/azure/validate-templates.sh "$RUNNER_TEMP/iyqpis-templates"
       - name: Test deployment guards without Azure access
         shell: pwsh
         run: |
@@ -30,8 +26,10 @@ jobs:
           ./infra/azure/Test-DataPublishGuards.ps1
           ./infra/azure/Test-DataJobGuards.ps1
           ./infra/azure/Test-ReferenceAIGuards.ps1
-      - name: Test private probe safety with simulated responses
-        run: python -m unittest discover -s infra/azure -p test_private_probe.py
+      - name: Test security regressions and operational safety
+        env:
+          IYQPIS_COMPILED_ML: ${{ runner.temp }}/iyqpis-templates/ml-workspace.json
+        run: python -m unittest discover -s infra/azure -p 'test_*.py'
       - name: Install pinned security scanner
         run: pip install checkov==3.3.20
       - name: Security scan

@@ -21,14 +21,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: az bicep install --version v0.47.16
-      - run: az bicep build --file infra/foundation-ci.bicep --outfile "$RUNNER_TEMP/platform.json"
+      - run: bash infra/azure/validate-templates.sh "$RUNNER_TEMP/iyqpis-templates"
       - run: pip install checkov==3.3.20
       - run: checkov -d infra/ --framework bicep --compact
       - shell: pwsh
         run: |
           ./infra/azure/Test-PlatformGuards.ps1
           ./infra/azure/Test-CiGuards.ps1
-      - run: python -m unittest discover -s infra/azure -p test_private_probe.py
+      - name: Test security regressions and operational safety
+        env:
+          IYQPIS_COMPILED_ML: ${{ runner.temp }}/iyqpis-templates/ml-workspace.json
+        run: python -m unittest discover -s infra/azure -p 'test_*.py'
 
   deploy:
     needs: validate
