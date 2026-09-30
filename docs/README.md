@@ -70,5 +70,6 @@ These records are retrospective review/planning artifacts. They do not confer st
 - [Requirements evidence guide](../requirements/README.md) and [50-row matrix](../requirements/verification_matrix.csv)
 - [AI-assisted review findings](../governance/reviews/2026-09-30-reference-review.md)
 - [Assurance actions](../governance/reference-assurance-actions.csv) and [organization-control proposal](../governance/organization-controls.md)
+- [Azure ML scanner dispositions](../governance/azure-ml-scan-disposition.md), [security/operations implementation review](../governance/reviews/2026-09-30-security-operations.md), and [operational verification runbook](../runbooks/reference-operational-assurance.md)
 
 Mapping coverage is complete; requirement acceptance, independent assurance and customer production are not implied.

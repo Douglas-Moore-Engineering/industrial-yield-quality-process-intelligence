@@ -84,8 +84,19 @@ def validate(template):
     return {"status": "passed", "scope": "compiled reference ML configuration", "live_cloud_verified": False}
 
 
+def validate_scope(directory):
+    for path in Path(directory).glob("*.json"):
+        if path.name != "ml-workspace.json":
+            document = json.loads(path.read_text())
+            require(not any(r["type"].lower().startswith("microsoft.machinelearningservices/") for r in resources(document)),
+                    f"ML scope added in {path.name}; reassess reference scanner dispositions")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("template", type=Path)
+    parser.add_argument("--compiled-directory", type=Path)
     args = parser.parse_args()
+    if args.compiled_directory:
+        validate_scope(args.compiled_directory)
     print(json.dumps(validate(json.loads(args.template.read_text()))))

@@ -3,6 +3,7 @@ import copy
 import json
 import os
 from pathlib import Path
+import tempfile
 import unittest
 
 import check_ml_security as security
@@ -53,6 +54,13 @@ class CompiledSecurityTests(unittest.TestCase):
                 document['resources'].append({'type': 'Microsoft.MachineLearningServices/workspaces/' + kind})
                 with self.assertRaises(ValueError):
                     security.validate(document)
+
+    def test_scope_expansion_in_another_entrypoint_is_refused(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'new-compute.json'
+            path.write_text(json.dumps({'resources': [{'type': 'Microsoft.MachineLearningServices/workspaces/computes'}]}))
+            with self.assertRaisesRegex(ValueError, 'scope added'):
+                security.validate_scope(directory)
 
 
 if __name__ == '__main__':

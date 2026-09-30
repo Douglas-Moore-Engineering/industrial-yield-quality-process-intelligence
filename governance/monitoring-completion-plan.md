@@ -28,6 +28,8 @@ Scheduled-query alerts have recurring charges; log ingestion, retained deleted d
 
 Completion must not be declared from resource existence alone. On-demand idle time is expected; there is no fake live-data freshness or continuous performance claim.
 
+The [operational assurance runbook](../runbooks/reference-operational-assurance.md) now provides tested repository tooling for read-only diagnostic-log observation and disposable whole-container recovery. These are prepared tools, not evidence that deployment, notification delivery or a cloud restore has occurred. The disposable container contains only a newly generated probe; existing source/model containers are never deleted by the drill.
+
 ## References
 
 - [Container Apps log schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/containerappconsolelogs)

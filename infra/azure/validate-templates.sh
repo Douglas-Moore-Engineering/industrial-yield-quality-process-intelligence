@@ -7,4 +7,4 @@ mkdir -p "$destination"
 for template in infra/*.bicep; do
   az bicep build --file "$template" --outfile "$destination/$(basename "$template" .bicep).json"
 done
-python infra/azure/check_ml_security.py "$destination/ml-workspace.json"
+python infra/azure/check_ml_security.py "$destination/ml-workspace.json" --compiled-directory "$destination"

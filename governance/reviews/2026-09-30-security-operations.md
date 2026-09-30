@@ -6,10 +6,13 @@ Source baseline: `d82281ab90e96ca59ec8db6f7584ed3de52279c1`. Scope: user-authori
 
 - [Scoped Checkov dispositions](../azure-ml-scan-disposition.md) based on pinned scanner source and Microsoft documentation, with compiled-template security checks and negative tests.
 - CI compilation expanded to every top-level Bicep entrypoint.
+- [Reference assurance tooling](../../infra/azure/reference_assurance.py) provides read-only monitoring observations, explicitly labeled diagnostic output and a disposable-container restore drill. Evidence is checkpointed before deletion; accepted artifacts cannot be targeted. See the [operational runbook](../../runbooks/reference-operational-assurance.md).
 
 ## Verification
 
-Implementation is being validated on a working branch. Final CI result and commit references will be recorded before integration into `main`.
+Initial security commit `a02b7a5a1cea18c5dc00db6f57f503c199e33c32` passed [platform CI run 36751922591](https://github.com/Douglas-Moore-Engineering/industrial-yield-quality-process-intelligence/actions/runs/36751922591): all top-level entrypoints compiled, five PowerShell guard scripts passed, eight compiled-security/private-probe tests passed, and Checkov reported **50 passed, 0 failed, 7 skipped**. Four of those skips are the newly documented resource-scoped dispositions; three pre-existed. This is not a claim that the skipped generic policies passed.
+
+The subsequent operational implementation passed 12 local simulated safety tests. The final combined CI result will be recorded before integration into `main`. Python model/data code, frozen thresholds and historical Azure evidence are unchanged; the earlier 90-test data-suite result is not relabeled as a new execution.
 
 ## Cloud execution boundary
 

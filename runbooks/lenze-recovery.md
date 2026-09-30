@@ -20,3 +20,5 @@ Before production promotion, select retention and recovery requirements with an 
 - Unexpected decisions: stop promotion and investigate runtime/artifact differences. Do not recalibrate using the inspected test set.
 
 Existing platform Activity Log alerts are management-plane monitoring. Their existence does not prove that failed inference jobs generate notifications. Application failure alert coverage and delivery require separate implementation/verification; no alert message was sent by this drill.
+
+Prepared follow-up: [reference operational assurance](reference-operational-assurance.md) includes an isolated whole-container cloud restore tool with checksum verification, context/retention guards and checkpointed evidence. Its simulated tests do not close the cloud-recovery gap above.
