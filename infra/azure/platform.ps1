@@ -50,7 +50,20 @@ try {
     if ($TemplateSet -eq 'Operations') {
         if ([string]::IsNullOrWhiteSpace($parameters.alertEmail.value) -or $parameters.alertEmail.value -like '*REPLACE*') { throw 'Set an approved alert recipient in local operations parameters.' }
         if ($parameters.monthlyBudget.value -lt 1) { throw 'Set a positive monthly budget.' }
-        if ($parameters.budgetStartDate.value -notmatch '^\d{4}-\d{2}-01T00:00:00Z$') { throw 'Budget start must be the first of a month in UTC.' }
+        # ConvertFrom-Json can materialize ISO timestamps as DateTime. Validate
+        # UTC month-start semantics without culture-dependent string formatting.
+        $budgetStart = $parameters.budgetStartDate.value
+        $validBudgetStart = $false
+        if ($budgetStart -is [datetime]) {
+            $validBudgetStart = $budgetStart.Kind -eq [DateTimeKind]::Utc -and
+                $budgetStart.Day -eq 1 -and $budgetStart.TimeOfDay -eq [TimeSpan]::Zero
+        } elseif ($budgetStart -is [string] -and $budgetStart -cmatch '^\d{4}-\d{2}-01T00:00:00Z$') {
+            $parsedBudgetStart = [datetime]::MinValue
+            $validBudgetStart = [datetime]::TryParseExact(
+                $budgetStart, "yyyy-MM-dd'T'HH:mm:ss'Z'", [Globalization.CultureInfo]::InvariantCulture,
+                [Globalization.DateTimeStyles]::AssumeUniversal, [ref]$parsedBudgetStart)
+        }
+        if (-not $validBudgetStart) { throw 'Budget start must be the first of a month in UTC.' }
         if ($parameters.stem.value -notin @('iyqpis-dev','iyqpis-test') -or $parameters.platformResourceGroupName.value -ne "rg-$($parameters.stem.value)-platform") { throw 'Operations target must be the dev/test platform resource group.' }
         $deploymentName = "$($parameters.stem.value)-operations"
     } else {
@@ -72,3 +85,4 @@ try {
 } finally {
     if (Test-Path -LiteralPath $compiled) { Remove-Item -LiteralPath $compiled }
 }
+

@@ -58,7 +58,29 @@ try {
     $operations.parameters.budgetStartDate.value = 'invalid'
     $operations | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $parameterPath
     Assert-Blocked { & "$PSScriptRoot/platform.ps1" -Action Deploy -TemplateSet Operations -ParametersFile $parameterPath -ContextFile $contextPath -ApproveDeployment } 'first of a month'
+    # Reject valid-looking but non-month-start, non-UTC and malformed values.
+    foreach ($invalidStart in @('2026-09-02T00:00:00Z', '2026-09-01T00:00:01Z',
+                                '2026-09-01T00:00:00+00:00', '2026-09-01T00:00:00',
+                                '2026-13-01T00:00:00Z', 123, $null)) {
+        $operations.parameters.budgetStartDate.value = $invalidStart
+        $operations | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $parameterPath
+        Assert-Blocked { & "$PSScriptRoot/platform.ps1" -Action Deploy -TemplateSet Operations -ParametersFile $parameterPath -ContextFile $contextPath -ApproveDeployment } 'first of a month'
+    }
     $operations.parameters.budgetStartDate.value = '2026-09-01T00:00:00Z'
+    $operations | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $parameterPath
+    $originalCulture = [Threading.Thread]::CurrentThread.CurrentCulture
+    try {
+        foreach ($culture in @('en-US', 'fr-FR')) {
+            [Threading.Thread]::CurrentThread.CurrentCulture = [Globalization.CultureInfo]::GetCultureInfo($culture)
+            & "$PSScriptRoot/platform.ps1" -Action Preview -TemplateSet Operations -ParametersFile $parameterPath -ContextFile $contextPath | Out-Null
+            if ($global:iyqpisTestCommands | Where-Object { $_ -like 'deployment sub create*' }) { throw 'Operations preview invoked create.' }
+            if (-not ($global:iyqpisTestCommands | Where-Object { $_ -like 'deployment sub what-if*' })) { throw 'Operations preview did not invoke what-if.' }
+            $global:iyqpisTestCommands.Clear()
+        }
+    } finally {
+        [Threading.Thread]::CurrentThread.CurrentCulture = $originalCulture
+    }
+    Assert-Blocked { & "$PSScriptRoot/platform.ps1" -Action Deploy -TemplateSet Operations -ParametersFile $parameterPath -ContextFile $contextPath } 'explicitly pass -ApproveDeployment'
     $operations.parameters.platformResourceGroupName.value = 'rg-unrelated'
     $operations | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $parameterPath
     Assert-Blocked { & "$PSScriptRoot/platform.ps1" -Action Deploy -TemplateSet Operations -ParametersFile $parameterPath -ContextFile $contextPath -ApproveDeployment } 'dev/test platform'
@@ -66,9 +88,10 @@ try {
     Assert-Blocked { & "$PSScriptRoot/platform.ps1" -Action Preview -ContextFile $contextPath } 'Missing local Azure context'
     @{ subscriptionId = ''; tenantId = 'REPLACE-ME'; accountEmail = '' } | ConvertTo-Json | Set-Content -LiteralPath $contextPath
     Assert-Blocked { & "$PSScriptRoot/platform.ps1" -Action Preview -ContextFile $contextPath } 'Invalid local Azure context'
-    Write-Output 'PASS: deployment, local context and operations parameter guards (12 cases).'
+    Write-Output 'PASS: deployment, local context and operations guards, including UTC budget-date and culture regressions.'
 } finally {
     Remove-Item -LiteralPath $contextPath -ErrorAction SilentlyContinue
     Remove-Item Function:/az
     Remove-Item -LiteralPath $parameterPath -ErrorAction SilentlyContinue
 }
+
