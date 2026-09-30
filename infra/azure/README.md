@@ -1,5 +1,7 @@
 # Azure platform engineering
 
+**Reading scope:** the foundation sections below describe the platform increment at its deployment boundary. Later sections record the implemented data and reference AI increments. For current execution scope and unresolved work, use [Azure results](../../docs/azure-validation-results.md) and [project status](../../PROJECT_STATUS.md); earlier foundation exclusions are not a claim that later batch workloads are absent.
+
 **Deployed** to East US 2 as the development platform foundation. Resource group: `rg-iyqpis-dev-platform`; subscription deployment: `iyqpis-dev-platform`. Azure reports Succeeded and all five private endpoint connections are Approved (vault, registry, Monitor, and the data lake's blob and dfs endpoints). Private-client data-plane acceptance for the original three endpoints remains pending. This development foundation follows the repository's [deployment topology](../../docs/diagrams/12_deployment_topology.mmd) and [OT boundary](../../docs/diagrams/05_ot_it_security.mmd). Original architecture baselines remain unchanged. Applications, industrial pipelines, ML workloads and plant connectivity are outside this implementation.
 
 ## Target
@@ -81,7 +83,7 @@ The [reference AI build sequence](../../runbooks/reference-ai.md) reuses the exi
 This is a reference industrial manufacturing environment with no approved customer plant or pilot owner. Copper rod/wire is illustrative.
 
 Current model-validation state:
-- **Lenze geared-motor quality-inspection reference benchmark: G2 PASS** — 65% anomaly recall and 7.74% false-alert rate on the publisher test partition, reproduced in Azure with frozen/checksum-verified evidence.
+- **Lenze geared-motor quality-inspection reference benchmark: G2 PASS** — 65% anomaly recall and 7.74% false-alert burden (false alerts / all test rows) on the publisher test partition, reproduced in Azure with frozen/checksum-verified evidence.
 - **SECOM reference track: not accepted for promotion** — the earlier deployed baseline failed its alert-recall criterion and later candidate work still lacks independent confirmation.
 
 Customer production promotion remains blocked because site-specific data, plant acceptance thresholds, operational assurance and release authority are absent. No live production inference service, OT control connection, production review application or validated digital twin is deployed. Use `Invoke-ReferenceAI.ps1 -ApproveRun` for approved on-demand reference validation; outputs are retained in the private curated-evidence container.

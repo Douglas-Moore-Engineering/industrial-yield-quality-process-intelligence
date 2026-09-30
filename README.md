@@ -18,6 +18,7 @@ Enterprise industrial AI and systems-engineering architecture for predicting, ex
 - [Implemented Azure reference environment](#implemented-azure-reference-environment)
 - [Current release state](#current-release-state)
 - [Updated DME assurance records](#updated-dme-assurance-records)
+- [Reference evidence review](#reference-evidence-review)
 - [Next phase](#next-phase)
 - [Confidentiality](#confidentiality)
 
@@ -39,7 +40,7 @@ The platform then applies statistical monitoring, predictive quality/yield model
 
 The v0.6 baseline remains the cloud-neutral design record. The implemented reference environment now runs on a private Azure development platform in East US 2 with on-demand execution. The Lenze geared-motor quality-inspection reference model has passed its predefined G2 point-estimate thresholds locally and in Azure. Customer/site commissioning, plant-specific acceptance criteria, operational assurance and production authorization remain intentionally gated. See [current project status](PROJECT_STATUS.md), [Azure operations](infra/azure/README.md), and the [reference AI build sequence](runbooks/reference-ai.md).
 
-Copper rod/wire manufacturing is the first validation scenario only. The core architecture remains material- and industry-agnostic.
+Copper rod/wire manufacturing remains the illustrative domain scenario in the design baseline. The current passing implementation benchmark is the separate Lenze reference. The architecture targets a reusable material- and industry-agnostic core; cross-domain performance requires validation.
 
 ## What the system is designed to do
 
@@ -135,7 +136,8 @@ K -. "Outcome feedback" .-> G
 |---|---|
 | [Functional requirements](requirements/functional_requirements.csv) | FR-001 through FR-030 |
 | [Non-functional requirements](requirements/nonfunctional_requirements.csv) | NFR-001 through NFR-020 |
-| [Traceability matrix](requirements/traceability.csv) | Need → requirement → verification → evidence → gate |
+| [Stakeholder traceability](requirements/traceability.csv) | Six original need-to-requirement mappings |
+| [Requirement verification matrix](requirements/verification_matrix.csv) | All 50 requirements: implementation, tests, recorded evidence, scope and gaps |
 | [Architecture decisions](architecture/architecture_decisions.csv) | Accepted pre-Azure ADR register |
 | [Azure-entry criteria](governance/azure_entry_criteria.csv) | Evidence required before Azure mapping/implementation |
 | [Pre-Azure gate status](governance/pre_azure_gate_status.md) | Complete/partial/pending evidence by gate |
@@ -264,3 +266,13 @@ Private DME engineering repository. Do not redistribute architecture, diagrams, 
 - [Customer/site readiness and acceptance boundary](customer/README.md)
 
 These records are retrospective review/planning artifacts. They do not confer standards-assurance approval, ORR, CAR or production authority.
+
+## Reference evidence review
+
+- [INCOSE Chapters 1–6 implementation map](docs/incose-implementation-map.md)
+- [Requirements and verification status](requirements/README.md)
+- [AI-assisted review and findings](governance/reviews/2026-09-30-reference-review.md)
+- [Reference assurance actions](governance/reference-assurance-actions.csv)
+- [Proposed organization controls](governance/organization-controls.md)
+
+All 50 requirements are mapped; this does not mean all are implemented or accepted. Reference implementation, historical execution and pending customer/site evidence remain distinct. Human assurance approvals and organization-policy adoption remain open.

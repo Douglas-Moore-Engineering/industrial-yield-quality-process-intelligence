@@ -8,6 +8,7 @@ Version 1; effective 2026-09-30; private engineering. Owner: proposed DME system
 - [Technical management](#technical-management)
 - [Verification and transition](#verification-and-transition)
 - [Change and retirement](#change-and-retirement)
+- [Reference evidence review supplement](#reference-evidence-review-supplement)
 
 ## Scope and lifecycle
 
@@ -40,3 +41,7 @@ Integrate governed platform before source/process/feature/model/decision workloa
 Documentation correction CR-DOC-2026-09-30 reconciles historical status, phase order, threshold terminology and assurance plans. It changes no executable code, model, feature definition, protocol cutoff, Azure resources or release authority. Existing runtime evidence is not invalidated by this correction. Check documentation links, phase coverage, metric arithmetic and source-evidence consistency.
 
 Future source/model/feature/threshold/infrastructure/security changes must identify affected requirements, invalidated evidence, repeat gates, cost/schedule impacts, migration, rollback compatibility and approver. Preserve the original frozen release. Support commitments, training, handoff, export, credential revocation, retention/deletion and retirement authority must be agreed and evidenced for an actual customer; no completed handoff or deletion is asserted.
+
+## Reference evidence review supplement
+
+[CR-DOC-REF-2026-09-30](../governance/reviews/2026-09-30-reference-review.md) records an AI-assisted inspection of requirement coverage and design/runtime correspondence. The [verification matrix](../requirements/verification_matrix.csv) preserves original requirements while attaching implementation, test definitions, historical evidence and unresolved acceptance. The [organization-control proposal](../governance/organization-controls.md) and [assurance actions](../governance/reference-assurance-actions.csv) make open responsibilities and closure evidence concrete. They do not establish policy adoption, assigned personnel or independent approval. All unassigned management/reviewer roles above remain unassigned.

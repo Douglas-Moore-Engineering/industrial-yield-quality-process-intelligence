@@ -1,0 +1,37 @@
+{
+  "review_date": "2026-09-30",
+  "source_commit": "cc911d091323831f11f7c889a20514312d4387f8",
+  "change_id": "CR-DOC-REF-2026-09-30",
+  "scope": "Documentation/register structural validation and retained-evidence consistency; not software execution or independent assurance",
+  "result": "PASS",
+  "baseline_requirements": 50,
+  "mapped_requirements": 50,
+  "unique_requirement_ids": 50,
+  "original_requirement_statements_preserved": true,
+  "status_counts": {
+    "REFERENCE_PARTIAL": 35,
+    "DESIGN_ONLY": 12,
+    "EXTENSION_PLANNED": 1,
+    "REFERENCE_BOUNDARY_IMPLEMENTED": 2
+  },
+  "matrix_path_references_checked": 195,
+  "python_symbols_resolved": 101,
+  "assurance_actions_checked": 10,
+  "changed_markdown_links_checked": 298,
+  "markdown_anchors_checked": 56,
+  "protected_snapshot_files_unchanged": 100,
+  "fixed_metric_arithmetic_and_identity_consistent": true,
+  "files_in_change": 17,
+  "new_software_test_run": false,
+  "new_azure_execution": false,
+  "human_assurance_approval": false,
+  "production_release": "BLOCKED",
+  "method": [
+    "CSV unique-ID/baseline statement comparison",
+    "Filesystem resolution and Python AST symbol lookup",
+    "Relative Markdown path/heading resolution",
+    "git snapshot comparison of protected artifacts",
+    "Existing JSON metric arithmetic, frozen threshold and cross-record identity checks"
+  ],
+  "errors": []
+}

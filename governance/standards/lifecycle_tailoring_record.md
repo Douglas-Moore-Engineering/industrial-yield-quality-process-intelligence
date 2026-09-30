@@ -11,3 +11,7 @@ Production stages are blocked, not marked N/A. Bounded autonomy requires a separ
 Entry to reference replay requires frozen inputs/model/protocol integrity and the approved bounded execution context. Exit is limited to evidence-backed replay; unresolved monitoring/recovery controls remain open. Site entry requires an approved sponsor, source rights, source mapping, temporal feature validity, thresholds and operating ownership. Shadow/canary/ORR/CAR exits require their own representative evidence and approval.
 
 Re-enter relevant phases when schema, feature extraction, source/site, model, cutoff/criterion, dependency, IaC, identity/network, support scope or risk changes. Identify invalidated evidence before promotion. Map applicable 15288/12207 outcomes during the open standards review; these phase names alone do not establish alignment.
+
+## Evidence mapping supplement
+
+The [reference review](../reviews/2026-09-30-reference-review.md) and [verification matrix](../../requirements/verification_matrix.csv) identify which baseline capabilities are partial, design-only or future extensions for this increment. Deferral is explicit and does not waive later acceptance. File-based feature management remains a documented engineering recommendation with human approval pending; no tailoring authority is inferred from this supplement.

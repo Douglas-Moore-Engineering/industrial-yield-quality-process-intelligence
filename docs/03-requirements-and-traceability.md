@@ -60,7 +60,7 @@ Major quality attributes:
 
 ## Traceability
 
-See [traceability.csv](../requirements/traceability.csv).
+See [traceability.csv](../requirements/traceability.csv) for the six original stakeholder mappings and [verification_matrix.csv](../requirements/verification_matrix.csv) for all 50 individual requirement assessments. The [evidence guide](../requirements/README.md) defines status meanings, source versions and remaining review obligations. Complete mapping is not complete verification or acceptance.
 
 The chain is:
 

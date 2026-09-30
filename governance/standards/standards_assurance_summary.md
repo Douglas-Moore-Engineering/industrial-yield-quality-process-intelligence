@@ -8,6 +8,7 @@ Version 1; effective 2026-09-30; private engineering. Owner: DME systems enginee
 - [Applicability and tailoring](#applicability-and-tailoring)
 - [Open assurance obligations](#open-assurance-obligations)
 - [Gate decision](#gate-decision)
+- [Evidence mapping update](#evidence-mapping-update)
 
 ## Assessment basis
 
@@ -37,3 +38,7 @@ These obligations are tracked as open work, not satisfied merely by their source
 ## Gate decision
 
 Reference benchmark G2 PASS remains limited to fixed point-estimate criteria and frozen replay. Full reference operational assurance remains partial. Site qualification, ORR, CAR and customer production are blocked. Standards-assurance gaps must be resolved or given authorized, risk-based dispositions before the gate for which they are critical.
+
+## Evidence mapping update
+
+The [50-row verification matrix](../../requirements/verification_matrix.csv) and [AI-assisted repository review](../reviews/2026-09-30-reference-review.md) now provide individual implementation/test/evidence mappings and architecture correspondence observations. These close the absence of a detailed mapping; they do not complete the requirements-quality, architecture-description or independent V&V obligations above. The [organization-control proposal](../organization-controls.md) remains a draft, and the [assurance actions](../reference-assurance-actions.csv) retain open closure work. No standards-assurance PASS or new release authority is granted.

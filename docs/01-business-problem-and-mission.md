@@ -40,7 +40,7 @@ IYQPIS will detect emerging process instability, predict yield and quality risk 
 
 ## Initial validation domain
 
-The core architecture is industry-agnostic. Copper rod/wire manufacturing is the first validation scenario because it provides continuous-process behavior, measurable yield/quality outcomes, strong physical-process dependencies and an appropriate testbed for genealogy, predictive quality and digital-twin methods.
+The core architecture is intended to be industry-agnostic. Copper rod/wire is the illustrative domain scenario in the historical design baseline because it exposes continuous-process, quality, genealogy and physical-process concerns. It is not an onboarded or validated customer site. The current passing implementation benchmark is the separate Lenze geared-motor reference using publisher precomputed features; see [Azure results](azure-validation-results.md). Cross-industry applicability remains subject to domain and site validation.
 
 ## Success measures
 

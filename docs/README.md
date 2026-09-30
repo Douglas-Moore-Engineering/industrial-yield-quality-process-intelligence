@@ -28,6 +28,7 @@ This directory contains the architecture package and deployment evidence for the
 20. [Appendix B — Assumptions register](appendix-b-assumptions-register.md)
 21. [Appendix C — Reference set](appendix-c-reference-set.md)
 22. [Updated DME assurance records](#updated-dme-assurance-records)
+23. [Reference evidence review](#reference-evidence-review)
 
 ## Current architecture gate
 
@@ -62,3 +63,12 @@ The initial system is advisory. Existing operational controls and authorized per
 - [Customer/site readiness and acceptance boundary](../customer/README.md)
 
 These records are retrospective review/planning artifacts. They do not confer standards-assurance approval, ORR, CAR or production authority.
+
+## Reference evidence review
+
+- [INCOSE implementation map](incose-implementation-map.md)
+- [Requirements evidence guide](../requirements/README.md) and [50-row matrix](../requirements/verification_matrix.csv)
+- [AI-assisted review findings](../governance/reviews/2026-09-30-reference-review.md)
+- [Assurance actions](../governance/reference-assurance-actions.csv) and [organization-control proposal](../governance/organization-controls.md)
+
+Mapping coverage is complete; requirement acceptance, independent assurance and customer production are not implied.
