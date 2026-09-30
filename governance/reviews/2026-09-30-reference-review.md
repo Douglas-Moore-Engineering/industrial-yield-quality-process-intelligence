@@ -56,6 +56,8 @@ This table records cross-view observations and unresolved differences. It is not
 
 See [verification results](2026-09-30-verification.json) for reproducible structural checks and outcomes. Checks cover all 50 original statements, matrix path/symbol references, local Markdown links/anchors in changed documents, fixed metric arithmetic and decision-hash consistency, original evidence preservation and the scope of changed files.
 
-Only documentation/registers change. Executable Python, tests, schemas, IaC, workflows, model protocol, feature files, original requirement baselines and historical Azure evidence are unchanged. No Azure operation or new software-test execution is represented by this correction. Production gates remain blocked. Optional integrations and customer-dependent stages are not reclassified as completed.
+The initial documentation commit `8c3fa43604d654c4dcc3d514b8cdf4dbfd47e196` changes only documentation/registers. Executable Python, tests, schemas, IaC, workflows, model protocol, feature files, original requirement baselines and historical Azure evidence are unchanged by that commit. No Azure operation or new software-test execution is represented by its structural verification report. Production gates remain blocked. Optional integrations and customer-dependent stages are not reclassified as completed.
+
+Subsequent GitHub Actions results and the deployment-script correction are recorded separately in the [CI follow-up](2026-09-30-ci-followup.md). They do not retroactively alter the original structural verification report.
 
 No owner, independent reviewer, customer or release authority approval is invented. The [standards obligations](../standards/standards_assurance_summary.md) and [assurance actions](../reference-assurance-actions.csv) remain authoritative about unresolved work.
