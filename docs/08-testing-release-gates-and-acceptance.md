@@ -58,3 +58,13 @@ A pilot must prove, at minimum:
 - rollback
 - agreed false-alert burden
 - process-engineering validation
+
+## Lifecycle and gate reconciliation
+
+Gate IDs are project configuration identifiers, not skill phase numbers. Preserve the established project G6 advanced-authority identifier in historical evidence and implementation. The updated skill recommends G6 scale-out and G7 bounded automation; those are recommendations, not permission to silently change the project gate contract. Any adoption requires an approved ADR, implementation/configuration impact analysis and revalidation. Both scale-out and advanced authority remain unauthorized.
+
+Build Production AI Systems v9 phases 16–21 are reference runtime verification, customer/site adaptation, site shadow/canary validation, ORR, production release, and continuous revalidation. Phase 16 is **not production release**.
+
+Before customer production activation require current standards assurance, site qualification, applicable shadow/canary evidence, technical ORR, Customer Acceptance Review (CAR), and explicit production release authority. CAR evaluates agreed customer outcomes; ORR evaluates operational readiness. Neither substitutes for the other.
+
+See [updated lifecycle review](../governance/updated-skill-gap-review.md), [threshold verification](../governance/threshold-verification.csv), [standards assurance](../governance/standards/standards_assurance_summary.md), and [customer/site readiness](../customer/README.md). Critical failed or unverified criteria block advancement; do not lower criteria after observing outcomes.

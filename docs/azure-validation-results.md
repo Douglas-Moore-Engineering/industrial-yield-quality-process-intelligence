@@ -47,4 +47,4 @@ Use the approved company context in ignored local Azure parameters and the publi
 
 The command incurs bounded job charges and returns a submission, not a completion verdict. Inspect execution status and compare its printed decision digest with the evidence file. Preserve frozen inputs and thresholds; do not label repeated evaluation of these records as fresh acceptance data.
 
-This results page and its evidence contain no account email, subscription ID, tenant ID, access token or credentials. They are prepared for repository review; no GitHub commit or push is implied.
+This results page and its evidence contain no account email, subscription ID, tenant ID, access token or credentials. They are published as repository evidence. Publication does not imply a new Azure execution or production release.

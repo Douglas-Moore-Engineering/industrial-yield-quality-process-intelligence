@@ -2,7 +2,7 @@
 
 **Azure reference batch-inference deployment: verified.** The current GitHub demonstration scope is the private Container Apps runtime and its reproducible model results. Grafana, Azure ML-managed execution and desktop private access are deferred integrations, not acceptance requirements for this batch demonstration. Their actual status is retained below.
 
-Updated 2026-09-28. Scope: **reference industrial manufacturing validation environment**. No customer plant, line, production source or pilot owner is assigned. Copper rod/wire remains illustrative.
+Status documentation reconciled 2026-09-30; execution evidence retains its original dates. Scope: **reference industrial manufacturing validation environment**. No customer plant, line, production source or pilot owner is assigned. Copper rod/wire remains illustrative.
 
 **Lenze reference benchmark passes the fixed point-estimate thresholds locally and in Azure.** On the publisher test partition, the frozen model detects 208/320 anomalies (65% recall) with 122/1,576 false alerts (7.74% of all rows). The cutoff was set using only normal training calibration data. See [Lenze evidence](.azure/lenze-acceptance.json). This does not establish customer production readiness.
 
@@ -10,9 +10,9 @@ Updated 2026-09-28. Scope: **reference industrial manufacturing validation envir
 
 Candidate: `66587bfb754049a71963a17a84300510`. It uses 20 training-selected sensors, class-balanced logistic regression and a frozen calibrated cutoff of `0.08006196823284614`. The required recall remains at least 50%, and false alerts remain at most 10% of all rows. See [model acceptance](runbooks/model-acceptance.md) and [candidate evidence](.azure/candidate-acceptance.json). That SECOM increment passed 73 tests; the subsequent Lenze increment passed 77.
 
-## GitHub-ready Azure execution evidence
+## Published Azure execution evidence
 
-Execution `job-iyqpis-dev-data-yrcuuy2` succeeded on 2026-09-29 UTC. It reproduced all 1,576 frozen decisions and 330 alerts with the expected decision hash. All 90 local tests passed. See [results report](docs/azure-validation-results.md) and [machine-readable evidence](.azure/github-validation-result.json). This is a replay of the reference benchmark, not fresh acceptance data. No GitHub commit or push was performed.
+Execution `job-iyqpis-dev-data-yrcuuy2` succeeded on 2026-09-29 UTC. It reproduced all 1,576 frozen decisions and 330 alerts with the expected decision hash. All 90 local tests passed. See [results report](docs/azure-validation-results.md) and [machine-readable evidence](.azure/github-validation-result.json). This is a replay of the reference benchmark, not fresh acceptance data. The evidence is published in this repository; this report does not establish fresh execution or production acceptance.
 
 ## Azure ML workspace integration requested
 
@@ -58,7 +58,7 @@ A deterministic, target-independent setting-group reservation assigns 6,145 rows
 - Reference shadow guards, associative explanations, drift/calibration summaries, local review ledger, model registry/rollback, explicit-edge genealogy and historical-case retrieval.
 - Software tests exercise stale/missing/invalid/domain-shift refusal, checksum failures, audit modification, duplicate dispositions, rollback and production-promotion refusal.
 
-Azure reference AI execution and replay succeeded with the same model ID and checksum-verified evidence artifacts. No new standing service or automatic schedule was created. The **earlier SECOM baseline** still has zero held-out alert recall at its calibration-selected threshold and therefore remains blocked. The **Lenze reference model is the current passing G2 benchmark**, with 65% anomaly recall and a 7.74% false-alert rate on the publisher test partition. Neither result is customer production evidence.
+Azure reference AI execution and replay succeeded with the same model ID and checksum-verified evidence artifacts. No new standing service or automatic schedule was created. The **earlier SECOM baseline** still has zero held-out alert recall at its calibration-selected threshold and therefore remains blocked. The **Lenze reference model is the current passing G2 benchmark**, with 65% anomaly recall and a 7.74% false-alert burden (false alerts / all test rows) on the publisher test partition. Neither result is customer production evidence.
 
 ## Release sequence
 
@@ -68,7 +68,7 @@ Azure reference AI execution and replay succeeded with the same model ID and che
 | G1 reproducible baseline | Reference training and versioned evidence implemented |
 | G2 offline V&V | Lenze publisher-test benchmark passes locally and in Azure; SECOM independent confirmation remains pending |
 | G3 shadow | Historical reference validation only; no live plant shadow deployment |
-| G4 advisory canary | Blocked: no approved pilot or accepted model |
+| G4 advisory canary | Blocked: no approved pilot or site-qualified model; the passing frozen reference model is not site acceptance |
 | G5 production advisory | Blocked: real acceptance, security/recovery and ownership absent |
 | G6 advanced authority | Disabled; no causal/twin/safety evidence or OT write path |
 
@@ -88,3 +88,13 @@ Azure reference AI execution and replay succeeded with the same model ID and che
 Approved plant/source contracts; identifier and genealogy mapping; measured load/latency; warning horizon and feature availability; new model validation data; approved alert thresholds; data classification/retention; enterprise IAM and multi-user review service; persisted-log and paging acceptance; backup/restore and RPO/RTO; live shadow/canary trials and plant-owner approval. No production readiness or business ROI is claimed.
 
 Existing platform follow-ups, including protected GitHub deployment activation, remain in [Azure operations](infra/azure/OPERATIONS.md). See [reference AI build and runbook](runbooks/reference-ai.md) for commands, boundaries and recovery procedures. The original pre-Azure gate documents remain historical design evidence, not the current deployment inventory.
+
+## Updated DME assurance records
+
+- [21-phase lifecycle and gap review](governance/updated-skill-gap-review.md)
+- [Threshold verification register](governance/threshold-verification.csv)
+- [Systems Engineering Management Plan](docs/systems-engineering-management-plan.md)
+- [Standards applicability and assurance](governance/standards/standards_assurance_summary.md)
+- [Customer/site readiness and acceptance boundary](customer/README.md)
+
+These records are retrospective review/planning artifacts. They do not confer standards-assurance approval, ORR, CAR or production authority.

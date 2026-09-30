@@ -17,6 +17,7 @@ Enterprise industrial AI and systems-engineering architecture for predicting, ex
 - [Repository structure](#repository-structure)
 - [Implemented Azure reference environment](#implemented-azure-reference-environment)
 - [Current release state](#current-release-state)
+- [Updated DME assurance records](#updated-dme-assurance-records)
 - [Next phase](#next-phase)
 - [Confidentiality](#confidentiality)
 
@@ -238,7 +239,7 @@ Current evidence state:
 - cloud implementation: private development platform and on-demand data pipeline deployed and verified
 - data engineering: five sample datasets, 1,104,500 validated records; remote checksum and replay acceptance passed
 - reference AI: chronological quality benchmark, shadow guards, monitoring, local review ledger and rollback implemented; Azure execution and reproducible replay passed
-- Lenze reference validation: **PASS at G2** — 65% anomaly recall and 7.74% false-alert rate on the publisher test partition, with frozen artifacts and Azure evidence retained
+- Lenze reference validation: **PASS at G2** — 65% anomaly recall and 7.74% false-alert burden (false alerts / all test rows) on the publisher test partition, with frozen artifacts and Azure evidence retained
 - SECOM reference track: independent confirmation remains incomplete; no production promotion claim
 - production data: not yet onboarded
 - customer/site validation: not yet performed
@@ -253,3 +254,13 @@ A future real pilot requires approved source/plant ownership, upstream feature p
 ## Confidentiality
 
 Private DME engineering repository. Do not redistribute architecture, diagrams, datasets, threat models, requirements, implementation artifacts or customer-derived material without authorization.
+
+## Updated DME assurance records
+
+- [21-phase lifecycle and gap review](governance/updated-skill-gap-review.md)
+- [Threshold verification register](governance/threshold-verification.csv)
+- [Systems Engineering Management Plan](docs/systems-engineering-management-plan.md)
+- [Standards applicability and assurance](governance/standards/standards_assurance_summary.md)
+- [Customer/site readiness and acceptance boundary](customer/README.md)
+
+These records are retrospective review/planning artifacts. They do not confer standards-assurance approval, ORR, CAR or production authority.

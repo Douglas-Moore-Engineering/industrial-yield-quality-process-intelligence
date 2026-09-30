@@ -27,12 +27,13 @@ This directory contains the architecture package and deployment evidence for the
 19. [Appendix A — KPI dictionary](appendix-a-kpi-dictionary.md)
 20. [Appendix B — Assumptions register](appendix-b-assumptions-register.md)
 21. [Appendix C — Reference set](appendix-c-reference-set.md)
+22. [Updated DME assurance records](#updated-dme-assurance-records)
 
 ## Current architecture gate
 
 **Pre-Azure Architecture Baseline v0.6**
 
-The architecture is deliberately cloud-agnostic at this point. Azure service selection, landing-zone design, network topology, sizing, cost modeling and IaC begin only after the Azure-entry evidence gates are satisfied.
+The v0.6 baseline is the historical cloud-neutral design record. The private Azure reference batch-inference environment is deployed and its frozen benchmark replay is verified. Current state: **G2 reference benchmark PASS; G3 live site shadow not performed; G4/G5 blocked**. Full operational assurance, customer/site acceptance and production authorization remain open. The historical Azure-entry documents are retained for traceability; use [PROJECT_STATUS.md](../PROJECT_STATUS.md) for current deployment status.
 
 ## Authority boundary
 
@@ -51,3 +52,13 @@ The initial system is advisory. Existing operational controls and authorized per
 - Start with the [root project README](../README.md) for the executive view.
 - Use the [architecture diagram index](architecture/README.md) for the 12 GitHub-rendered architecture views.
 - Use the numbered documents above for detailed architecture review.
+
+## Updated DME assurance records
+
+- [21-phase lifecycle and gap review](../governance/updated-skill-gap-review.md)
+- [Threshold verification register](../governance/threshold-verification.csv)
+- [Systems Engineering Management Plan](../docs/systems-engineering-management-plan.md)
+- [Standards applicability and assurance](../governance/standards/standards_assurance_summary.md)
+- [Customer/site readiness and acceptance boundary](../customer/README.md)
+
+These records are retrospective review/planning artifacts. They do not confer standards-assurance approval, ORR, CAR or production authority.

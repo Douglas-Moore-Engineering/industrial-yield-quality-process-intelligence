@@ -1,5 +1,10 @@
 # Azure Entry Gate
 
+> **Historical v0.6 pre-Azure design record.** The dated design text below is retained for traceability. It is not the current deployment decision or inventory. Operational status is superseded by [PROJECT_STATUS.md](../PROJECT_STATUS.md) and [Azure execution evidence](../docs/azure-validation-results.md).
+>
+> Reviewed 2026-09-30: a bounded private Azure development/reference environment has been deployed and exercised. This does not close customer/site production-entry criteria, grant production approval, or retroactively approve historical pending gates. Build Production AI Systems v9 §13 permits a bounded reference environment while customer/site assumptions remain explicit and production use remains gated.
+
+
 ## Table of contents
 
 - [Purpose](#purpose)

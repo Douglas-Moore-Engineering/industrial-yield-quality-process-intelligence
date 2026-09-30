@@ -1,32 +1,47 @@
 # Updated skill lifecycle review
 
-Scope: existing industrial manufacturing reference environment, with frozen Lenze model. Governing source: `.codex/skills/build-production-ai-systems/SKILL.md` on `origin/main`, reviewed 2026-09-28. No production plant or owner is assigned.
+Version 2; reviewed 2026-09-30. Classification: private engineering. Owner: DME reference engineering role. Independent reviewer/approver: unassigned; no approval inferred.
 
-The skill adds explicit baseline/threshold and feature gates. Existing benchmark results are preserved. Evidence added after training is labeled retrospective; missing historical gates cannot be made to have passed by creating documents now.
+Governing sources: Build Production AI Systems v9, Systems Engineering Standards Assurance v1, and Customer Delivery & Service Operations v2, updated 2026-09-29. The repository skill snapshot predates those source updates and is a historical implementation aid; the versions above govern this review.
 
-| Lifecycle phase | Current evidence and remaining gap |
+Scope: existing industrial reference environment with frozen benchmark artifacts. This is a retrospective gap review, not a claim that newly documented reviews occurred before training or deployment. No plant/customer acceptance exists.
+
+## Technical lifecycle
+
+| Phase | Evidence and gap |
 |---|---|
-| 1 Business/systems definition | Reference-only scope established; customer authority absent |
-| 2 Architecture/technical management | Existing requirements and architecture; Lenze production traceability incomplete |
-| 3 Cloud foundation | Existing private East US 2 platform |
-| 4 Platform/DevSecOps | Manual job and guarded publishing verified; protected automated promotion remains disabled |
-| 5 Security/observability baseline | Private endpoints, identity and operations controls implemented; not full assurance |
-| 6 Data engineering | Lenze file checksums and joins verified; extraction provenance incomplete |
-| 7 Process/data baseline | Normal training population characterized; raw process/time history unavailable |
-| 8 Process/data thresholds | Integrity/finiteness contracts enforced; plant limits, capacity and freshness criteria unapproved |
-| 9 Feature engineering | Identity selection of publisher features; upstream formulas/units/windows unverified |
-| 10 Feature baseline/validation | Training-only distribution evidence added retrospectively; point-in-time validation unresolved |
-| 11 Feature management | File catalog appropriate to reference batch use; online store not required by current scope |
-| 12 ML/MLOps | Frozen model meets reference criteria locally/Azure; no calibrated probability claim |
-| 13 Decision integration | Existing illustrative human review; Lenze operational workflow not qualified |
-| 14 Security assurance | Full access, supply-chain and threat-control evidence still required for production |
-| 15 Reliability/operability | Production SLO/load/recovery evidence absent |
-| 16 Production release | NO-GO; retain reference-only authority |
+| 1 Business/systems definition | Reference scope established; real sponsor/site authority unassigned |
+| 2 Architecture/technical management | v0.6 requirements/design retained; retrospective standards/requirements assurance is pending |
+| 3 Cloud foundation | Private reference platform deployed; customer landing-zone mapping pending |
+| 4 Platform/DevSecOps | Manual job exercised; protected automated promotion remains disabled |
+| 5 Security/privacy/observability baseline | Private platform controls implemented; monitoring completion prepared but not deployed |
+| 6 Data engineering | Source checksums/join verified; extraction provenance and customer source authorization pending |
+| 7 Process/data baseline | Normal reference population characterized; plant process/time baseline unavailable |
+| 8 Process/data thresholds | Integrity/finiteness rules enforced; plant limits/freshness/capacity targets unapproved |
+| 9 Feature engineering | 16 publisher features selected; extraction formulas/units/windows and physical timing unverified |
+| 10 Feature baseline/validation | Training-only profile added retrospectively; physical point-in-time validity unresolved |
+| 11 Feature management | Versioned file catalog used; online store not required for this batch scope; applicability approval pending |
+| 12 ML/MLOps/AI | Frozen benchmark meets fixed G2 criteria; no calibrated-probability or field-performance claim |
+| 13 Decision integration | Illustrative review ledger; real multi-user operator workflow not validated |
+| 14 Security/privacy/observability assurance | Access/supply-chain/security review and persisted-log/paging evidence incomplete |
+| 15 Reliability/V&V/operational assurance | Eight local recovery cases passed; cloud restore/load/SLO/RPO/RTO unverified |
+| 16 Reference release/runtime verification | Azure frozen-decision replay verified; full telemetry/alert/cloud-recovery assurance remains partial |
+| 17 Customer/site adaptation | Blocked: no approved customer/site or source mapping |
+| 18 Site validation/shadow/canary | Not performed with live plant data; G3 incomplete and G4 blocked |
+| 19 Operational Readiness Review | Not conducted/passed; evidence and accountable operating owners absent |
+| 20 Production release | NO-GO: G5 blocked; no customer acceptance or production authority |
+| 21 Continuous operation/change/revalidation | Change obligations defined; production SRE/outcome history unavailable |
 
 ## Threshold evidence
 
-Version: `governance/lenze-protocol.json` v1. Recall >= 0.50: observed 0.65 (208/320). False alerts / all test rows <= 0.10: observed 0.077411 (122/1,576). G2 reference benchmark passes. Source/model hashes, test method and Azure execution are in `.azure/lenze-acceptance.json`. Engineering owner: reference engineering role; independent production reviewer unassigned. These reference criteria are not customer-approved operational thresholds. The cutoff and criteria remain unchanged.
+[Protocol v1](lenze-protocol.json) remains unchanged: recall >= 0.50, observed 208/320 = 0.65; false alerts / all test rows <= 0.10, observed 122/1,576 = 0.07741116751269035. Alert rule remains score strictly greater than 0.47010843494548926. These are reference point-estimate criteria, not customer-approved plant thresholds or conventional false-positive rate.
 
-## Next gates
+[Threshold verification register](threshold-verification.csv) records comparison semantics and original evidence. Source/model hashes and image digest are retained in [acceptance evidence](../.azure/lenze-acceptance.json); [Azure replay](../.azure/github-validation-result.json) confirms frozen decisions. The 90 tests are a historical recorded result, not a test run during this documentation correction.
 
-Obtain upstream feature definitions and extraction provenance to resolve temporal/physical validity; establish approved process criteria from a representative source; per-record frozen-model consistency is now verified across Windows/Linux/Azure (see `.azure/lenze-decision-consistency.json`); qualify live-input refusal behavior separately; complete release-integrity, recovery and access-control evidence before expanding operational use. No additional cloud service is justified by this review.
+## Cross-cutting assurance and next work
+
+Use the [SEMP](../docs/systems-engineering-management-plan.md), [standards assurance summary](standards/standards_assurance_summary.md), and [customer readiness record](../customer/README.md). No standards-assurance PASS, CAR, ORR or production GO is claimed.
+
+Proceed with monitoring/security/recovery evidence closure for the reference scope and, when an authorized site exists, source/identifier/genealogy mapping, approved process baselines, physical feature availability, warning horizon, independent/site V&V and shadow evaluation. Do not treat historical replay as live shadow or repeated test-partition evaluation as independent confirmation.
+
+Gate numbering is preserved as explained in [release-gate reconciliation](../docs/08-testing-release-gates-and-acceptance.md#lifecycle-and-gate-reconciliation).
