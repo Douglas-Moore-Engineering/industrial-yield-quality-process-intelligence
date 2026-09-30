@@ -41,3 +41,5 @@ These are unresolved scanner findings, not proof that every reported issue is a 
 The Python/model implementation, thresholds, frozen artifacts and original requirement statements are unchanged by the script fix. The passing data result applies to `8c3fa43`; that suite is not claimed to have rerun at the PowerShell-only fix commit. The structural JSON report linked from the original review describes the earlier documentation-only correction and remains unchanged.
 
 CI compilation and mocked guard tests do not prove deployed Azure behavior. Monitoring deployment, notification delivery, cloud restore, formal review/ownership and site acceptance remain open in the [assurance action register](../reference-assurance-actions.csv).
+
+Subsequent evidence-supported scanner dispositions and executable security/operational checks are recorded in the [security and operations implementation review](2026-09-30-security-operations.md). That later platform CI run passes with explicit resource-scoped skips; the failed run and open cloud-operation limits above remain historical evidence.
