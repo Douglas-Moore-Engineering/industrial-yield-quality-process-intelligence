@@ -2,7 +2,7 @@
 
 Version 1; 2026-09-30; private engineering. Owner: proposed DME systems engineering role. Approver: unassigned. Status: retrospective proposal; no tailoring approval asserted.
 
-Use an iterative reference-development lifecycle followed by separately approved site adaptation, offline site V&V, shadow, advisory canary, ORR, CAR and production activation. Preserve the 21-phase skill sequence and the project's existing release IDs. Customer agreement processes are pending engagement, not permanently waived.
+Use an iterative reference-development lifecycle followed by separately approved site adaptation, offline site V&V, shadow, advisory canary, ORR, CAR and production activation. Preserve the 21-phase project lifecycle and the project's existing release IDs. Customer agreement processes are pending engagement, not permanently waived.
 
 The reference workload uses publisher precomputed features and manual batch execution. File-based feature management is proportionate; an online store is not required by this execution pattern. Rationale, downstream effects and review triggers are recorded in [features/README.md](../../features/README.md). Approval of this applicability decision remains pending.
 

@@ -14,7 +14,7 @@ Version 1; effective 2026-09-30; private engineering. Owner: proposed DME system
 
 System of interest: IYQPIS advisory industrial intelligence architecture and bounded private Azure reference batch runtime. Frozen reference results demonstrate benchmark behavior; no customer/site performance or business return is established.
 
-Use [updated lifecycle review](../governance/updated-skill-gap-review.md) and [tailoring record](../governance/standards/lifecycle_tailoring_record.md). The three skills interleave engagement scope, standards assurance and technical lifecycle. New governance records are retrospective; they do not overwrite earlier decisions.
+Use [updated lifecycle review](../governance/lifecycle-gap-review.md) and [tailoring record](../governance/standards/lifecycle_tailoring_record.md). Engineering reviews cover engagement scope, standards assurance and the technical lifecycle. New governance records are retrospective; they do not overwrite earlier decisions.
 
 ## Technical management
 
@@ -24,7 +24,7 @@ Use [updated lifecycle review](../governance/updated-skill-gap-review.md) and [t
 | Customer/supplier interfaces | [Customer readiness](../customer/README.md); source-provider feature semantics and license dependencies must be reviewed; no customer contract exists |
 | Requirements/configuration | Preserve [traceability](../requirements/traceability.csv), stable FR/NFR IDs and versioned model/source/protocol hashes. Perform open requirements-quality review |
 | Architecture/decisions/interfaces | [Architecture index](architecture/README.md), [ADR register](../architecture/architecture_decisions.csv), [interfaces](integration-and-interface-architecture.md); review concerns and cross-view correspondence |
-| Planning/assessment/control | [Project status](../PROJECT_STATUS.md), [lifecycle review](../governance/updated-skill-gap-review.md), [readiness register](../customer/readiness-register.csv); assign owners and milestone dates before commitments |
+| Planning/assessment/control | [Project status](../PROJECT_STATUS.md), [lifecycle review](../governance/lifecycle-gap-review.md), [readiness register](../customer/readiness-register.csv); assign owners and milestone dates before commitments |
 | Risks/opportunities | Security threat model plus open AI risk consolidation; evaluate domain shift, weak labels, false/missed alerts and human over-reliance before site use |
 | Information/measurement | Git history retains versions; distinguish historical baselines from current evidence; [threshold register](../governance/threshold-verification.csv) defines denominator/comparison. Approve classification/retention and information-item inventory |
 | Quality/standards | [Standards summary](../governance/standards/standards_assurance_summary.md); independently review applicable obligations and nine product-quality characteristics |

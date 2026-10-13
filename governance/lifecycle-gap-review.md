@@ -1,8 +1,8 @@
-# Updated skill lifecycle review
+# Engineering lifecycle gap review
 
 Version 2; reviewed 2026-09-30. Classification: private engineering. Owner: DME reference engineering role. Independent reviewer/approver: unassigned; no approval inferred.
 
-Governing sources: Build Production AI Systems v9, Systems Engineering Standards Assurance v1, and Customer Delivery & Service Operations v2, updated 2026-09-29. The repository skill snapshot predates those source updates and is a historical implementation aid; the versions above govern this review.
+Review basis: the project requirements, architecture, benchmark protocol, release gates and recorded implementation evidence. Supporting records are linked below.
 
 Scope: existing industrial reference environment with frozen benchmark artifacts. This is a retrospective gap review, not a claim that newly documented reviews occurred before training or deployment. No plant/customer acceptance exists.
 
@@ -48,6 +48,6 @@ Gate numbering is preserved as explained in [release-gate reconciliation](../doc
 
 ## Measurement and README handoff — 2026-10-12
 
-Repository-maintenance increment: the [measurement index](../governance/measurements/README.md) and [open KPI plans](../governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved; reusable skills are external to the project.
+Repository-maintenance increment: the [measurement index](../governance/measurements/README.md) and [open KPI plans](../governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved.
 
 Receiving owner: Dr. Douglas Moore, DME engineering lead. Actual independent/customer review remains unassigned. Continue the existing offline review and qualification backlog; obtain missing provenance and authorized site inputs before dependent claims or release decisions. This increment changes no model, threshold, deployment, customer acceptance or production authority.

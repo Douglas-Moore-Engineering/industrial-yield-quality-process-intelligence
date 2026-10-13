@@ -60,7 +60,7 @@ The software checks are local. Full data/model replay requires the authorized so
 | Requirements and verification | [Requirements guide](requirements/README.md), [verification and validation matrix](requirements/verification_matrix.csv) |
 | Performance indicators, measurements and decisions | [Indicator dictionary](docs/appendix-a-kpi-dictionary.md), [measurement index](governance/measurements/README.md), [release/acceptance design](docs/08-testing-release-gates-and-acceptance.md) |
 | Implementation and operations | [Source](src/iyqpis), [Azure runbooks](infra/azure/README.md), [recovery](runbooks/lenze-recovery.md) |
-| Lifecycle and customer handoff | [Lifecycle gap review](governance/updated-skill-gap-review.md), [customer readiness](customer/README.md), [status](PROJECT_STATUS.md) |
+| Lifecycle and customer handoff | [Lifecycle gap review](governance/lifecycle-gap-review.md), [customer readiness](customer/README.md), [status](PROJECT_STATUS.md) |
 | Complete documentation | [Documentation index](docs/README.md), [contributing](CONTRIBUTING.md) |
 
 Private DME engineering repository. Do not redistribute engineering material or commit credentials, customer records or unapproved dataset bytes.

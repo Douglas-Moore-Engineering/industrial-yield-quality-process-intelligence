@@ -32,7 +32,7 @@ Live read-only acceptance passed for the current foundation: expected account co
 
 The small probe SKU supports host encryption and non-zonal deployment is not listed as restricted. EncryptionAtHost was registered. Allocation preflight failed with zero VM-family quota; no compute remains. Public Linux retail rate queried: USD 0.0416/hour plus temporary disk/diagnostics storage. Resource-group Cost Management query returned no posted rows, not a zero-cost guarantee.
 
-## Skill completion self-check
+## Operational verification review
 
 - PASS: all generated Bicep entrypoints compile; command output recorded above.
 - PASS WITH EXISTING EXCEPTION: Checkov has no failed checks; one documented quarantine skip.

@@ -56,7 +56,7 @@ The initial system is advisory. Existing operational controls and authorized per
 
 ## Updated DME assurance records
 
-- [21-phase lifecycle and gap review](../governance/updated-skill-gap-review.md)
+- [21-phase lifecycle and gap review](../governance/lifecycle-gap-review.md)
 - [Threshold verification register](../governance/threshold-verification.csv)
 - [Systems Engineering Management Plan](../docs/systems-engineering-management-plan.md)
 - [Standards applicability and assurance](../governance/standards/standards_assurance_summary.md)
