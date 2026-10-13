@@ -1,0 +1,18 @@
+measurement_id,kpi_id,measurement_status,criterion_result,acceptance_disposition,record
+MEAS-IYQPIS-001,IYQPIS-KPI-014,measured,pass,pending review,MEAS-IYQPIS-001.md
+MEAS-IYQPIS-002,IYQPIS-KPI-015,measured,pass,pending review,MEAS-IYQPIS-002.md
+MEAS-IYQPIS-003,IYQPIS-KPI-016,measured,pass,pending review,MEAS-IYQPIS-003.md
+MEAS-IYQPIS-004,IYQPIS-KPI-017,inconclusive,not evaluated,pending review,MEAS-IYQPIS-004.md
+MEAS-IYQPIS-PLAN-001,IYQPIS-KPI-001,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-001
+MEAS-IYQPIS-PLAN-002,IYQPIS-KPI-002,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-002
+MEAS-IYQPIS-PLAN-003,IYQPIS-KPI-003,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-003
+MEAS-IYQPIS-PLAN-004,IYQPIS-KPI-004,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-004
+MEAS-IYQPIS-PLAN-005,IYQPIS-KPI-005,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-005
+MEAS-IYQPIS-PLAN-006,IYQPIS-KPI-006,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-006
+MEAS-IYQPIS-PLAN-007,IYQPIS-KPI-007,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-007
+MEAS-IYQPIS-PLAN-008,IYQPIS-KPI-008,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-008
+MEAS-IYQPIS-PLAN-009,IYQPIS-KPI-009,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-009
+MEAS-IYQPIS-PLAN-010,IYQPIS-KPI-010,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-010
+MEAS-IYQPIS-PLAN-011,IYQPIS-KPI-011,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-011
+MEAS-IYQPIS-PLAN-012,IYQPIS-KPI-012,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-012
+MEAS-IYQPIS-PLAN-013,IYQPIS-KPI-013,not measured,not evaluated,pending review,planned-kpis.md#meas-iyqpis-plan-013

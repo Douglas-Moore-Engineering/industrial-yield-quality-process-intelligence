@@ -9,3 +9,9 @@ Changes must preserve requirements traceability, architecture-decision records, 
 5. Require review before merge to the protected default branch.
 
 Direct commits to the protected default branch should be disabled once repository protection is configured.
+
+## Measurement and repository evidence
+
+Maintain the seven-section README order and link quantitative results to the [measurement index](governance/measurements/README.md). Preserve exact units, denominators, original evidence versions and actual decision authority. New evaluations receive new record IDs; retrospective documentation is not a newly executed test. Keep customer outcomes **not measured** until observed and attributed.
+
+Reusable DME skill packages are installed outside the project. Do not commit `SKILL.md` or copied instruction/reference bundles. Project-specific requirements, evidence, measurements and decision records remain in Git. Run `python scripts/check_repository_contract.py` before committing. Its structural checks cannot authenticate evidence or approve a release.
