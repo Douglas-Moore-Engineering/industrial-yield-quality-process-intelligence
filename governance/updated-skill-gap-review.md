@@ -45,3 +45,9 @@ Use the [SEMP](../docs/systems-engineering-management-plan.md), [standards assur
 Proceed with monitoring/security/recovery evidence closure for the reference scope and, when an authorized site exists, source/identifier/genealogy mapping, approved process baselines, physical feature availability, warning horizon, independent/site V&V and shadow evaluation. Do not treat historical replay as live shadow or repeated test-partition evaluation as independent confirmation.
 
 Gate numbering is preserved as explained in [release-gate reconciliation](../docs/08-testing-release-gates-and-acceptance.md#lifecycle-and-gate-reconciliation).
+
+## Measurement and README handoff — 2026-10-12
+
+Repository-maintenance increment: the [measurement index](../governance/measurements/README.md) and [open KPI plans](../governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved; reusable skills are external to the project.
+
+Receiving owner: Dr. Douglas Moore, DME engineering lead. Actual independent/customer review remains unassigned. Continue the existing offline review and qualification backlog; obtain missing provenance and authorized site inputs before dependent claims or release decisions. This increment changes no model, threshold, deployment, customer acceptance or production authority.

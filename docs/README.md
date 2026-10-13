@@ -73,3 +73,11 @@ These records are retrospective review/planning artifacts. They do not confer st
 - [Azure ML scanner dispositions](../governance/azure-ml-scan-disposition.md), [security/operations implementation review](../governance/reviews/2026-09-30-security-operations.md), and [operational verification runbook](../runbooks/reference-operational-assurance.md)
 
 Mapping coverage is complete; requirement acceptance, independent assurance and customer production are not implied.
+
+## Measurement evidence
+
+- [Versioned measurement index](../governance/measurements/README.md)
+- [KPI dictionary](appendix-a-kpi-dictionary.md)
+- [Open KPI measurement plans](../governance/measurements/planned-kpis.md)
+
+The index connects the README results to original evidence, evaluated versions, limitations and existing acceptance decisions. Measurement, criterion result and authorized acceptance remain separate.

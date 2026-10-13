@@ -46,3 +46,9 @@ infra/azure/*.local.log
 # Office temp
 ~$*.docx
 ~$*.xlsx
+
+# DME reusable skill instructions live outside project repositories.
+**/SKILL.md
+**/.agents/skills/
+**/.codex/skills/
+/.agents/skills-manifest.json
