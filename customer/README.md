@@ -30,6 +30,6 @@ Every engagement needs a supported operation, transfer, renewal or exit path. Ex
 
 ## Measurement and README handoff — 2026-10-12
 
-Repository-maintenance increment: the [measurement index](../governance/measurements/README.md) and [open KPI plans](../governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved; reusable skills are external to the project.
+Repository-maintenance increment: the [measurement index](../governance/measurements/README.md) and [open KPI plans](../governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved.
 
 Receiving owner: Dr. Douglas Moore, DME engineering lead. Actual independent/customer review remains unassigned. Continue the existing offline review and qualification backlog; obtain missing provenance and authorized site inputs before dependent claims or release decisions. This increment changes no model, threshold, deployment, customer acceptance or production authority.

@@ -2,7 +2,7 @@
 
 Completed 2026-09-28: execution `job-iyqpis-dev-data-rptcrd5` succeeded. Frozen-model evaluation reproduced 208/320 detected anomalies and 122/1,576 false alerts. The worker uploaded four artifacts with SHA256 readback. Registry public access is disabled with zero IP rules; the original data image and manual trigger are unchanged. Image digest: `sha256:75234c6d1fe17485fb36d8d1a0918eec89bf8f6a4ee54c4c285129eb3056fe51`.
 
-This reference workload reuses the existing manual Container Apps job in East US 2. It does not provision infrastructure or use azd. The Azure prepare skill explicitly excludes non-azd workflows; the enterprise infrastructure skill's provisioning phases do not apply when no infrastructure is generated or deployed. Existing account, private-registry and compute guards remain in the execution scripts.
+This reference workload reuses the existing manual Container Apps job in East US 2. It does not provision infrastructure or use azd. Existing account, private-registry and compute guards remain in the execution scripts.
 
 ## Validation and execution
 

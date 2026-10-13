@@ -1,4 +1,4 @@
-"""Read-only checks for README navigation, measurement indexes and skill placement.
+"""Read-only checks for README navigation, measurement indexes and repository hygiene.
 
 This checks repository structure, not scientific validity or release authority.
 """
@@ -99,5 +99,5 @@ if __name__ == '__main__':
     for failure in failures:
         print(f'ERROR: {failure}')
     if not failures:
-        print('PASS: README order, measurement index/links and committed skill placement')
+        print('PASS: README order, measurement index/links and repository hygiene')
     sys.exit(bool(failures))

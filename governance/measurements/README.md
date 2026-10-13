@@ -17,7 +17,7 @@ Pinned links identify the exact repository evidence snapshot reviewed. A reposit
 
 No real customer outcomes or independent sign-off are established. Each unmeasured plan has a DME owner and next action; its dependent acceptance remains open. Record corrections as new versions with rationale and retain their Git history; actual reruns receive new IDs.
 
-Existing decisions: [Lenze evidence](../../.azure/lenze-acceptance.json), [release status](../../PROJECT_STATUS.md), [reference protocol](../lenze-protocol.json). Existing lifecycle/handoff: [lifecycle gap review](../updated-skill-gap-review.md), [customer readiness](../../customer/README.md). Reference point-estimate passes do not establish statistical or customer acceptance.
+Existing decisions: [Lenze evidence](../../.azure/lenze-acceptance.json), [release status](../../PROJECT_STATUS.md), [reference protocol](../lenze-protocol.json). Existing lifecycle/handoff: [lifecycle gap review](../lifecycle-gap-review.md), [customer readiness](../../customer/README.md). Reference point-estimate passes do not establish statistical or customer acceptance.
 
 ## Unquantified claims
 

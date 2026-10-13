@@ -12,7 +12,7 @@ Version 1; effective 2026-09-30; private engineering. Owner: DME systems enginee
 
 ## Assessment basis
 
-The updated DME three-skill baseline governs this correction. The [applicability matrix](standards_applicability_matrix.csv) is a proposed process-level mapping, not a clause-level conformity assessment. Editions are the supplied skill baseline; publication/contractual applicability must be verified before approval. No certification, accreditation, conformity or standards-assurance PASS is claimed.
+The [applicability matrix](standards_applicability_matrix.csv) is a proposed process-level mapping, not a clause-level conformity assessment. The listed editions form a proposed baseline; publication and contractual applicability must be verified before approval. No certification, accreditation, conformity or standards-assurance PASS is claimed.
 
 Preserve original v0.6 architecture and reference test evidence. New plans do not retroactively establish historical approval or independence.
 
@@ -31,7 +31,7 @@ Use the [lifecycle tailoring record](lifecycle_tailoring_record.md) and [SEMP](.
 | Product quality | requirements/nonfunctional_requirements.csv | Review functional suitability, performance efficiency, compatibility, interaction capability, reliability, security, maintainability, flexibility and safety; map criteria/evidence or justified N/A | Quality lead; reviewer unassigned |
 | AI risk | docs/06-security-and-threat-model.md; features/README.md | Consolidate AI risks for domain shift, weak labels, temporal leakage, calibration, missed/false alerts, automation bias, artifact integrity and unvalidated use; assign treatment/acceptance authority and evidence | AI risk lead; reviewer unassigned |
 | Organization controls | Not identified in inspected project records | Identify governing quality, competence, reusable-IP, supplier and retention policies and evidence location outside repository | DME organization owner; unassigned |
-| Gate assurance | governance/updated-skill-gap-review.md | Review applicability, tailoring, evidence currency and blockers at reference/site/ORR/CAR/change/retirement reviews | Release authority; unassigned |
+| Gate assurance | governance/lifecycle-gap-review.md | Review applicability, tailoring, evidence currency and blockers at reference/site/ORR/CAR/change/retirement reviews | Release authority; unassigned |
 
 These obligations are tracked as open work, not satisfied merely by their source document titles. Create detailed registers during the corresponding review rather than copying unapproved claims into them.
 

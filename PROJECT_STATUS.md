@@ -35,9 +35,9 @@ Eight temporary-copy recovery cases passed: missing/corrupted frozen artifacts w
 
 Azure execution `job-iyqpis-dev-data-9ybs2wx` succeeded. All 1,576 record-level binary decisions match Windows and Linux using a canonical identifier/decision hash. This supersedes aggregate-only consistency evidence, without changing model or cutoff. Artifact-tampering and invalid-prediction checks are tested; the full suite passes 86 tests. See [consistency evidence](.azure/lenze-decision-consistency.json). Upstream extraction and physical point-in-time correctness remain unverified.
 
-## Updated skill lifecycle review
+## Engineering lifecycle review
 
-The updated production-systems skill is now applied through a [phase-by-phase review](governance/updated-skill-gap-review.md). Training-only [feature baseline and catalog](features/README.md) have been added retrospectively without changing the model or thresholds. Upstream feature provenance, temporal correctness, production criteria and operational assurance remain unresolved. Passing the reference benchmark does not close these gates.
+A [phase-by-phase engineering review](governance/lifecycle-gap-review.md) records the implementation evidence and remaining gaps. Training-only [feature baseline and catalog](features/README.md) have been added retrospectively without changing the model or thresholds. Upstream feature provenance, temporal correctness, production criteria and operational assurance remain unresolved. Passing the reference benchmark does not close these gates.
 
 ## Additional quality-inspection data received
 
@@ -91,7 +91,7 @@ Existing platform follow-ups, including protected GitHub deployment activation, 
 
 ## Updated DME assurance records
 
-- [21-phase lifecycle and gap review](governance/updated-skill-gap-review.md)
+- [21-phase lifecycle and gap review](governance/lifecycle-gap-review.md)
 - [Threshold verification register](governance/threshold-verification.csv)
 - [Systems Engineering Management Plan](docs/systems-engineering-management-plan.md)
 - [Standards applicability and assurance](governance/standards/standards_assurance_summary.md)
@@ -117,6 +117,6 @@ Prepared [operational assurance tools](runbooks/reference-operational-assurance.
 
 ## Measurement and README handoff — 2026-10-12
 
-Repository-maintenance increment: the [measurement index](governance/measurements/README.md) and [open KPI plans](governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved; reusable skills are external to the project.
+Repository-maintenance increment: the [measurement index](governance/measurements/README.md) and [open KPI plans](governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved.
 
 Receiving owner: Dr. Douglas Moore, DME engineering lead. Actual independent/customer review remains unassigned. Continue the existing offline review and qualification backlog; obtain missing provenance and authorized site inputs before dependent claims or release decisions. This increment changes no model, threshold, deployment, customer acceptance or production authority.
