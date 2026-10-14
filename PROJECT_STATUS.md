@@ -120,3 +120,9 @@ Prepared [operational assurance tools](runbooks/reference-operational-assurance.
 Repository-maintenance increment: the [measurement index](governance/measurements/README.md) and [open KPI plans](governance/measurements/planned-kpis.md) now bind the README claims to existing evidence and decisions. They are retrospective records, not new model/cloud runs or new acceptance. Definitions and requirement IDs are preserved.
 
 Receiving owner: Dr. Douglas Moore, DME engineering lead. Actual independent/customer review remains unassigned. Continue the existing offline review and qualification backlog; obtain missing provenance and authorized site inputs before dependent claims or release decisions. This increment changes no model, threshold, deployment, customer acceptance or production authority.
+
+
+
+## Repository review increment — 2026-10-14
+
+Added ordered demo, code walkthrough and results entry points plus a bounded executed notebook. See [validation and remaining work](docs/results.md). This changes presentation and local review automation; existing model/deployment decisions remain unchanged. Raw-data EDA, new baseline/candidate comparisons and verified MLflow tracking remain open where not already evidenced. Owner: Dr. Douglas Moore.

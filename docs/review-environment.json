@@ -1,0 +1,17 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux",
+  "packages": {
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0",
+    "matplotlib": "3.10.8",
+    "jsonschema": "4.26.0",
+    "pytest": "9.1.1",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3"
+  },
+  "execution": "Fresh process, sequential IPython cell execution; notebook socket transport unavailable locally; normal nbclient execution configured in CI."
+}

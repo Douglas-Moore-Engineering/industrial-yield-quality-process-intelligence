@@ -82,6 +82,7 @@ def validate_contract(root):
 
         docs = [root/'README.md', root/'docs/appendix-a-kpi-dictionary.md']
         docs += list((root/'governance/measurements').glob('*.md'))
+        docs += [root/'docs/demo.md', root/'docs/code-walkthrough.md', root/'docs/results.md', root/'notebooks/README.md']
         for path in docs:
             for target in re.findall(r'\]\(([^)]+)\)', path.read_text(encoding='utf-8')):
                 if target.startswith(('https:', 'http:', 'mailto:', '#')):
@@ -101,3 +102,4 @@ if __name__ == '__main__':
     if not failures:
         print('PASS: README order, measurement index/links and repository hygiene')
     sys.exit(bool(failures))
+
