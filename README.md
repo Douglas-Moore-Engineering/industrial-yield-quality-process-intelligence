@@ -2,6 +2,8 @@
 
 **Private Azure reference deployment.** Frozen Lenze-QI benchmark inference is verified on Container Apps Jobs. Customer/site production acceptance remains **BLOCKED**. [Current release state](#qualification-gaps-and-next-work) · [Detailed status](PROJECT_STATUS.md).
 
+**Review in order:** [1. Demo](docs/demo.md) → [2. Code walkthrough](docs/code-walkthrough.md) → [3. Results](docs/results.md)
+
 ## Operational problem
 
 Manufacturing teams need to identify abnormal process or inspection behavior, investigate affected material, and decide whether intervention is justified. Industrial Yield, Quality and Process Intelligence (IYQPIS) connects data validation, anomaly evidence and an advisory engineering workflow. Copper rod/wire is the illustrative architecture scenario; the implemented passing benchmark uses Lenze geared-motor inspection features.
@@ -64,3 +66,4 @@ The software checks are local. Full data/model replay requires the authorized so
 | Complete documentation | [Documentation index](docs/README.md), [contributing](CONTRIBUTING.md) |
 
 Private DME engineering repository. Do not redistribute engineering material or commit credentials, customer records or unapproved dataset bytes.
+

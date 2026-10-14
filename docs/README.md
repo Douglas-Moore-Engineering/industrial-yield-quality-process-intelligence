@@ -1,5 +1,7 @@
 # IYQPIS Engineering Documentation
 
+**Start here:** [1. Demo](demo.md) → [2. Code walkthrough](code-walkthrough.md) → [3. Results](results.md)
+
 This directory contains the architecture package and deployment evidence for the **Industrial Yield, Quality & Process Intelligence System (IYQPIS)**.
 
 **Azure reference batch deployment: verified.** See [deployment results](azure-validation-results.md) for the successful cloud execution, model metrics and reproducibility evidence.
@@ -81,3 +83,4 @@ Mapping coverage is complete; requirement acceptance, independent assurance and 
 - [Open KPI measurement plans](../governance/measurements/planned-kpis.md)
 
 The index connects the README results to original evidence, evaluated versions, limitations and existing acceptance decisions. Measurement, criterion result and authorized acceptance remain separate.
+
