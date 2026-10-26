@@ -65,5 +65,5 @@ The software checks are local. Full data/model replay requires the authorized so
 | Lifecycle and customer handoff | [Lifecycle gap review](governance/lifecycle-gap-review.md), [customer readiness](customer/README.md), [status](PROJECT_STATUS.md) |
 | Complete documentation | [Documentation index](docs/README.md), [contributing](CONTRIBUTING.md) |
 
-Private DME engineering repository. Do not redistribute engineering material or commit credentials, customer records or unapproved dataset bytes.
+Public DME engineering repository. Do not redistribute engineering material or commit credentials, customer records or unapproved dataset bytes.
 
